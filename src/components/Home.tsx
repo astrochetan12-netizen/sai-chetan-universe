@@ -9,7 +9,7 @@ const Leaf = ({ delay, startX, duration }: { delay: number, startX: number, dura
       animate={{ 
         y: '120vh', 
         x: startX + (Math.random() * 200 - 100),
-        opacity: [0, 1, 1, 0],
+        opacity: [0, 0.8, 0.8, 0],
         rotate: 360 
       }}
       transition={{ 
@@ -18,7 +18,7 @@ const Leaf = ({ delay, startX, duration }: { delay: number, startX: number, dura
         delay: delay, 
         ease: 'linear' 
       }}
-      className="absolute z-0 pointer-events-none w-6 h-6 bg-[url('/assets/stickers/leaf.png')] bg-contain bg-no-repeat"
+      className="absolute z-0 pointer-events-none w-12 h-12 bg-[url('/assets/stickers/leaf.jpg')] bg-contain bg-no-repeat mix-blend-screen"
     />
   );
 };
@@ -46,8 +46,8 @@ export default function Home() {
       ))}
 
       {/* Hanging Vines Decoration */}
-      <div className="absolute top-0 left-0 w-full h-32 pointer-events-none z-10 bg-[url('/assets/stickers/vines-top.png')] bg-repeat-x opacity-80 mix-blend-screen" />
-      <div className="absolute bottom-0 left-0 w-64 h-full pointer-events-none z-10 bg-[url('/assets/stickers/vines-side.png')] bg-repeat-y opacity-80 mix-blend-screen" />
+      <div className="absolute top-0 left-0 w-full h-48 pointer-events-none z-10 bg-[url('/assets/stickers/vines.jpg')] bg-repeat-x opacity-90 mix-blend-screen bg-contain" />
+      <div className="absolute bottom-0 left-0 w-48 h-full pointer-events-none z-10 bg-[url('/assets/stickers/vines.jpg')] opacity-90 mix-blend-screen bg-contain" style={{ backgroundRepeat: 'space' }} />
 
       {/* Main Identity Card (Discord 'All Nighter' Style) */}
       <motion.div 
@@ -66,9 +66,9 @@ export default function Home() {
             animate={{ rotate: [-8, 8, -8] }}
             transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
             style={{ originY: 0 }} // Swing from the top
-            className="absolute -top-16 -left-12 w-32 h-40 z-30"
+            className="absolute -top-32 -left-20 w-64 h-64 z-30 mix-blend-screen pointer-events-none"
           >
-            <div className="w-full h-full bg-[url('/assets/stickers/krishna-swing.png')] bg-contain bg-no-repeat bg-center drop-shadow-xl" />
+            <div className="w-full h-full bg-[url('/assets/stickers/krishna-swing.jpg')] bg-contain bg-no-repeat bg-center drop-shadow-[0_0_15px_rgba(100,200,255,0.6)]" />
           </motion.div>
 
           {/* Profile Header */}

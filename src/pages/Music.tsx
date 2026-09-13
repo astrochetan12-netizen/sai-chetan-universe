@@ -23,6 +23,19 @@ export default function Music() {
   const { music } = data;
   const cols = music.columns;
 
+  const SpotifyEmbed = ({ trackId }: { trackId: string }) => (
+    <iframe 
+      style={{ borderRadius: '12px', marginTop: '16px' }} 
+      src={`https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0`} 
+      width="100%" 
+      height="80" 
+      frameBorder="0" 
+      allowFullScreen={true} 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy"
+    />
+  );
+
   return (
     <Layout title="Music Vibes" themeColor="from-green-500 to-emerald-800">
       
@@ -35,16 +48,17 @@ export default function Music() {
           </div>
           <h3 className="text-xl font-bold mb-6 text-green-400 border-b border-white/10 pb-2">English</h3>
           
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-4 mb-2">
             <VinylRecord />
             <div>
               <p className="text-xs text-white/50 uppercase tracking-wider mb-1">Top Track</p>
               <p className="font-bold leading-tight">{cols.english.top_song}</p>
-              <PlayCircle className="w-5 h-5 mt-2 text-green-400 cursor-pointer hover:text-green-300" />
             </div>
           </div>
           
-          <div className="space-y-4">
+          <SpotifyEmbed trackId="4u4NxuwGtgVNAkymiC9k2u" /> {/* Hold On - Justin Bieber */}
+          
+          <div className="space-y-4 mt-6">
             <div>
               <p className="text-xs text-white/50 uppercase">Fav Band</p>
               <p className="font-medium text-white/90">{cols.english.favorite_band}</p>
@@ -64,7 +78,7 @@ export default function Music() {
         <div className="bg-[#181818] rounded-2xl p-6 border border-white/5 hover:border-green-500/30 transition-colors group relative overflow-hidden">
           <h3 className="text-xl font-bold mb-6 text-green-400 border-b border-white/10 pb-2">Telugu</h3>
           
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-4 mb-2">
             <VinylRecord />
             <div>
               <p className="text-xs text-white/50 uppercase tracking-wider mb-1">Top Tracks</p>
@@ -74,7 +88,9 @@ export default function Music() {
             </div>
           </div>
           
-          <div>
+          <SpotifyEmbed trackId="0GttF5W9YI3zHq2mY3B9V6" /> {/* Master The Blaster */}
+
+          <div className="mt-6">
             <p className="text-xs text-white/50 uppercase">Fav Artist</p>
             <p className="font-medium text-white/90">{cols.telugu.favorite_artist}</p>
           </div>
@@ -84,7 +100,7 @@ export default function Music() {
         <div className="bg-[#181818] rounded-2xl p-6 border border-white/5 hover:border-green-500/30 transition-colors group relative overflow-hidden">
           <h3 className="text-xl font-bold mb-6 text-green-400 border-b border-white/10 pb-2">Hindi</h3>
           
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-4 mb-2">
             <VinylRecord />
             <div>
               <p className="text-xs text-white/50 uppercase tracking-wider mb-1">Top Tracks</p>
@@ -94,7 +110,9 @@ export default function Music() {
             </div>
           </div>
           
-          <div>
+          <SpotifyEmbed trackId="1tD8J13a74q8fCBj3YdZeb" /> {/* Zaalima */}
+
+          <div className="mt-6">
             <p className="text-xs text-white/50 uppercase">Fav Artists</p>
             <ul className="mt-1 space-y-1">
               {cols.hindi.favorite_artists.map(a => (
@@ -108,7 +126,7 @@ export default function Music() {
         <div className="bg-[#181818] rounded-2xl p-6 border border-white/5 hover:border-green-500/30 transition-colors group relative overflow-hidden">
           <h3 className="text-xl font-bold mb-6 text-green-400 border-b border-white/10 pb-2">Japanese</h3>
           
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-4 mb-2">
             <VinylRecord />
             <div>
               <p className="text-xs text-white/50 uppercase tracking-wider mb-1">Top Tracks</p>
@@ -116,7 +134,9 @@ export default function Music() {
             </div>
           </div>
           
-          <div className="space-y-3">
+          <SpotifyEmbed trackId="0GgN4MhR5GKnEApXXalFpU" /> {/* Hikaru Nara */}
+
+          <div className="space-y-3 mt-6">
             {cols.japanese.top_songs.map((s, i) => (
               i > 0 && <p key={i} className="text-sm text-white/80 border-l-2 border-white/10 pl-3">{s}</p>
             ))}
