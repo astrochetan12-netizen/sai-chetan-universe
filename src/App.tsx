@@ -9,6 +9,7 @@ import Movies from './pages/Movies';
 import Shows from './pages/Shows';
 import Music from './pages/Music';
 import Career from './pages/Career';
+import Photography from './pages/Photography';
 
 // Placeholders for pages
 import Layout from './components/Layout';
@@ -43,7 +44,7 @@ function App() {
         <Route path="/shows" element={<Shows />} />
         <Route path="/music" element={<Music />} />
         <Route path="/writing" element={<Placeholder title="Writing" />} />
-        <Route path="/photography" element={<Placeholder title="Photography" />} />
+        <Route path="/photography" element={<Photography />} />
         <Route path="/gym" element={<Placeholder title="Gym" />} />
         <Route path="/career" element={<Career />} />
       </Routes>
