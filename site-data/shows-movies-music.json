@@ -1,0 +1,82 @@
+{
+  "shows": {
+    "top_favorite": {
+      "title": "Weak Hero Class",
+      "season_note": "Season 1 (2022)",
+      "layout": "Netflix-homepage-style featured hero: big image + description",
+      "note": "This is the confirmed #1 \u2014 build it as the only 'featured' entry."
+    },
+    "watched_full_list": [
+      "Attack on Titan",
+      "Sword Art Online: War of Underworld",
+      "That Time I Got Reincarnated As A Slime: Visions of Coleus",
+      "Snowball Earth",
+      "One-Punch Man (Season 1, complete series rewatch)",
+      "GNOSIA (trailer watched)",
+      "Black Clover Second Season (trailer watched)",
+      "[Oshi No Ko] Season 3",
+      "Chainsaw Man",
+      "Chainsaw Man: The Compilation",
+      "Solo Leveling",
+      "Solo Leveling Season 2: Arise from the Shadow",
+      "Spy x Family Season 3",
+      "Kaiju No. 8 Season 2",
+      "My Hero Academia Final Season",
+      "Mushoku Tensei: Jobless Reincarnation Season 3",
+      "My Dress-Up Darling Season 2",
+      "The Eminence in Shadow",
+      "The Eminence in Shadow Season 2",
+      "Re:ZERO -Starting Life in Another World- Season 4",
+      "Rascal Does Not Dream of Bunny Girl Senpai",
+      "Haikyu!!",
+      "Beyblade X",
+      "Gachiakuta",
+      "Kill Blue",
+      "Demon Lord 2099",
+      "Kingdom: Season 6",
+      "Dr. Stone: Science Future Part 3",
+      "Wistoria: Wand and Sword Season 2",
+      "Skeleton Knight in Another World Season 2",
+      "Trapped in a Dating Sim: The World of Otome Games Is Tough for Mobs Season 2",
+      "Note: dozens more isekai / slice-of-life / romcom titles in the full activity log \u2014 see media_and_music_log.md source for the exhaustive list, this JSON keeps the notable/rewatch-signal ones for the UI"
+    ],
+    "note_on_streaming_apps": "JioHotstar (opened 69x) and Sony LIV installed on device \u2014 plausible K-drama source, but no confirmed additional titles beyond Weak Hero Class."
+  },
+  "movies": {
+    "featured_favorite": {
+      "title": "Jersey",
+      "note": "Telugu version starring Nani",
+      "treatment": "hero image with a crown graphic on/above it, Spider-Verse-style halftone/glitch filter, warning banner below: 'affection too low to know about chetan's movie interests' with pouty/angry emoji accents"
+    },
+    "other_streaming_signals": [
+      "Dude",
+      "Little Hearts"
+    ],
+    "note": "These came from Telugu movie streaming app history (MovieRulz/iBomma/Bappam) \u2014 optional secondary row, Jersey stays the only 'featured' movie per spec."
+  },
+  "music": {
+    "columns": {
+      "english": {
+        "top_song": "Hold On \u2014 Justin Bieber",
+        "favorite_band": "One Direction",
+        "favorite_artists": ["XXXTENTACION", "The Weeknd", "Justin Bieber", "Charlie Puth"]
+      },
+      "telugu": {
+        "top_songs": ["Master The Blaster", "Gaali Vaaluga"],
+        "favorite_artist": "Anirudh Ravichander"
+      },
+      "hindi": {
+        "top_songs": ["Maula Mera", "Zaalima"],
+        "favorite_artists": ["Arijit Singh", "Anuv Jain"]
+      },
+      "japanese": {
+        "top_songs": [
+          "Your Lie in April OST",
+          "In the Pool",
+          "Rascal Does Not Dream of Bunny Girl Senpai theme song"
+        ]
+      }
+    },
+    "spotify_profile": "https://open.spotify.com/user/7b9xyt1jj2hsdqqb27g3yyeka"
+  }
+}

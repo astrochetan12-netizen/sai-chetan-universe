@@ -1,0 +1,122 @@
+{
+  "name_full": "Ganagalla Venkata Sai Chetan",
+  "site_display_name": ".sai chetan",
+  "tagline": "B.Tech CSE (AI & ML), SRM KTR \u2014 Aspiring SWE / AI Engineer",
+  "contact": {
+    "email": "astrochetan12@gmail.com",
+    "phone": "+91 6303249327",
+    "github": "https://github.com/astrochetan12-netizen",
+    "linkedin": "linkedin.com/in/ganagalla-venkata-sai-chetan"
+  },
+  "education": {
+    "institution": "SRM Institute of Science and Technology, Kattankulathur",
+    "program": "B.Tech, Computer Science & Engineering (AI & ML)",
+    "years": "2025 \u2013 2029",
+    "cgpa": "8.74 / 10.0",
+    "semester_breakdown": { "sem1": "9.045", "sem2": "8.429" },
+    "note": "All 43 registered credits earned \u2014 zero failures, zero absences",
+    "honors_courses": ["Japanese", "Computational Biology", "Chemistry", "Philosophy of Engineering"],
+    "class_xii": "Andhra Pradesh State Board, 2025"
+  },
+  "certifications": [
+    {
+      "name": "Introduction to Artificial Intelligence",
+      "issuer": "Google, via Coursera",
+      "date": "Oct 11, 2025",
+      "verify_url": "coursera.org/verify/43AVA6YCBTO5"
+    },
+    {
+      "name": "Geospatial Analytics Value-Added Course",
+      "issuer": "SRM CINTEL x Oakland University, USA",
+      "date": "Jul 2026"
+    }
+  ],
+  "programs_and_competitions": [
+    {
+      "name": "Global Consumer Intelligence (GCI) World 2026",
+      "org": "International Data Science Program (remote track associated with University of Tokyo)",
+      "date": "Jun \u2013 Jul 2026",
+      "status": "Participant \u2014 results expected July 2026",
+      "highlights": [
+        "Selected for a competitive international program on predictive analytics and ML challenges",
+        "Applied feature engineering, hyperparameter tuning, and model optimization on consumer datasets",
+        "Competed against international participants in a structured data science environment"
+      ]
+    },
+    {
+      "name": "Ideathon 2.0",
+      "org": "CINTEL Student Association, SRM KTR \u2014 Team: Code Reapers",
+      "date": "Oct 8\u20139, 2025",
+      "highlights": [
+        "2-day ideathon organized by the Department of Computational Intelligence",
+        "Collaborated on ideation, technical prototyping, and solution design under competition conditions"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "NFL Draft Prediction Model",
+      "stack": ["Python", "Scikit-learn", "XGBoost", "LightGBM", "CatBoost", "Optuna"],
+      "year": "2026",
+      "highlights": [
+        "End-to-end ML pipeline predicting draft outcomes from player and combine metrics",
+        "Benchmarked Random Forest, XGBoost, and CatBoost ensembles with Optuna-tuned hyperparameters"
+      ]
+    },
+    {
+      "name": "Telecom Customer Churn Prediction",
+      "stack": ["LightGBM", "Feature Engineering", "Relational multi-table dataset"],
+      "year": "2026",
+      "highlights": [
+        "Engineered custom indicators \u2014 Service Failure Score, Customer Value Score",
+        "Full EDA-to-business-impact workflow, targeting top 10% leaderboard placement"
+      ]
+    },
+    {
+      "name": "AI Shop Assistant",
+      "stack": ["Python", "NLP", "Conversational AI"],
+      "year": "2026",
+      "highlights": [
+        "Conversational AI shopping assistant with personalized recommendation logic",
+        "Dialogue-flow management, state-aware, user-centric interaction design"
+      ]
+    },
+    {
+      "name": "Medical Report Organizer Platform",
+      "stack": ["Document AI", "System Design"],
+      "year": "2025",
+      "highlights": [
+        "Conceptual secure AI-assisted platform for organizing/retrieving patient medical reports",
+        "Smart categorization, privacy-first access control, physician-friendly interface"
+      ]
+    },
+    {
+      "name": "KalaFlow \u2014 Cultural Learning AI Platform",
+      "stack": ["Generative AI", "EdTech"],
+      "year": "2025",
+      "highlights": [
+        "AI-powered EdTech platform teaching cultural skills via personalized adaptive learning paths",
+        "Recommendation systems, multilingual content delivery, progress tracking"
+      ]
+    }
+  ],
+  "skills": {
+    "languages": ["Python (primary)", "C/C++", "Java", "HTML & CSS"],
+    "ai_ml": ["ML model building & evaluation", "Feature engineering & preprocessing", "Predictive analytics & data viz", "Generative AI & LLMs"],
+    "tools": ["Git & GitHub", "Google Colab", "VS Code", "Gamma AI", "Lovable", "DaVinci Resolve", "CapCut"],
+    "interests": ["Cybersecurity & Ethical Hacking", "Data Science & Research", "Startup innovation & product design"]
+  },
+  "achievements": [
+    "CGPA 8.74 after first year; O grade (highest) in 4 of 8 Semester 1 subjects",
+    "All 43 registered credits earned in Year 1 \u2014 zero failures, zero absences",
+    "Selected participant, GCI World 2026 international ML competition",
+    "Completed Google's Introduction to AI certification via Coursera",
+    "Participated in SRM Ideathon 2.0 as Team Code Reapers",
+    "NCC member \u2014 National Cadet Corps, SRM KTR (Semester 1)"
+  ],
+  "resume_files_to_include": [
+    "Chetan_Resume_Google_SWE.docx",
+    "Chetan_Resume_OIST.docx",
+    "Okinawa_Research_Internship_Resume_Chetan_Modern.pdf"
+  ]
+}
