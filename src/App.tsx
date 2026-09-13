@@ -10,35 +10,21 @@ import Shows from './pages/Shows';
 import Music from './pages/Music';
 import Career from './pages/Career';
 import Photography from './pages/Photography';
-
-// Placeholders for pages
-import Layout from './components/Layout';
-const Placeholder = ({ title }: { title: string }) => (
-  <Layout title={title}>
-    <div className="h-64 flex flex-col items-center justify-center border border-white/10 rounded-2xl bg-white/5">
-      <h2 className="text-2xl font-bold text-white/50">Work in Progress</h2>
-      <p className="mt-2 text-white/30">Just wait, I'm cooking...</p>
-    </div>
-  </Layout>
-);
+import WIP from './pages/WIP';
 
 const Hub = () => (
-  <div className="min-h-screen w-full relative bg-[#0b0c10] text-white font-sans selection:bg-accentIndigo/30 overflow-hidden">
-    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay z-0"></div>
-    
+  <div className="min-h-screen w-full relative bg-[#0b0c10] text-white overflow-hidden">
+    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.15] pointer-events-none mix-blend-overlay z-0" />
     <div className="relative z-10 max-w-[1400px] mx-auto min-h-screen flex flex-col lg:flex-row items-start justify-center gap-12 p-4 lg:p-12 pt-20">
-      
-      {/* Left side: Profile Card */}
-      <div className="w-full lg:w-[450px] shrink-0">
+      {/* Left: Profile Card */}
+      <div className="w-full lg:w-[460px] shrink-0">
         <Home />
       </div>
-
-      {/* Right side: Widget Board & Socials */}
-      <div className="w-full lg:flex-1 max-w-4xl flex flex-col gap-8 mt-12 lg:mt-0">
+      {/* Right: Widget Board + Socials */}
+      <div className="w-full lg:flex-1 max-w-2xl flex flex-col gap-8 mt-8 lg:mt-0">
         <WidgetBoard />
         <Socials />
       </div>
-
     </div>
   </div>
 );
@@ -53,9 +39,9 @@ function App() {
         <Route path="/movies" element={<Movies />} />
         <Route path="/shows" element={<Shows />} />
         <Route path="/music" element={<Music />} />
-        <Route path="/writing" element={<Placeholder title="Writing" />} />
+        <Route path="/writing" element={<WIP section="writing" />} />
         <Route path="/photography" element={<Photography />} />
-        <Route path="/gym" element={<Placeholder title="Gym" />} />
+        <Route path="/gym" element={<WIP section="gym" />} />
         <Route path="/career" element={<Career />} />
       </Routes>
     </BrowserRouter>

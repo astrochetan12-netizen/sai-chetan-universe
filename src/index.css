@@ -2,10 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Base ─────────────────────────────────────────────────── */
+:root {
+  --dark-base: #0b0c10;
+  --dark-card: #111214;
+  --dark-elevated: #1e1f22;
+  --accent-indigo: #5865F2;
+}
+
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  background: var(--dark-base);
+  color: #fff;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Custom Krishna cursor (fine pointer = desktop/laptop only) ── */
+@media (pointer: fine) {
+  * { cursor: url('/assets/stickers/krishna-swing.jpg') 12 12, auto !important; }
+}
+
+/* ── Styled scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0b0c10; }
+::-webkit-scrollbar-thumb { background: #2b2d31; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #5865f2; }
+
+/* ── Retro/mono font utility ───────────────────────────────── */
+.font-retro { font-family: 'Courier New', Courier, monospace; }
+
+/* ── Halftone overlay (Movies section) ────────────────────── */
+.halftone {
+  background-image: radial-gradient(circle, #000 1px, transparent 1.5px);
+  background-size: 5px 5px;
 }
