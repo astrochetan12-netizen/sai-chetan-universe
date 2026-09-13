@@ -28,38 +28,52 @@ const itemVariants = {
 };
 
 export default function WidgetBoard() {
+  const navigate = useNavigate();
+
   return (
-    <div className="w-full max-w-4xl mx-auto mt-12 px-4 pb-20 relative z-20">
+    <div className="w-full max-w-4xl mx-auto mt-12 px-4 pb-20 relative z-20 text-white">
+      
+      {/* Discord style tabs */}
+      <div className="flex items-center gap-6 border-b border-white/5 pb-4 mb-8 text-[15px] font-medium">
+        <div className="text-white relative px-2 py-1 cursor-pointer">
+          Board
+          <div className="absolute -bottom-4 left-0 w-full h-[2px] bg-white rounded-t"></div>
+        </div>
+        <div className="text-white/50 hover:text-white/80 transition-colors px-2 py-1 cursor-pointer">Activity</div>
+        <div className="text-white/50 hover:text-white/80 transition-colors px-2 py-1 cursor-pointer">Wishlist</div>
+      </div>
+
+      <div className="text-center mb-8">
+        <h2 className="text-[17px] font-bold mb-1">Customize your profile with Widgets</h2>
+        <p className="text-[14px] text-white/50">Choose from our library of Widgets to share more<br/>about yourself and your interests</p>
+      </div>
+
       <motion.div 
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4"
+        className="grid grid-cols-1 sm:grid-cols-2 gap-4"
       >
-        {WIDGETS.map((widget) => {
-          const Icon = widget.icon;
+        {WIDGETS.map((w) => {
+          const Icon = w.icon;
           return (
-            <Link to={widget.path} key={widget.id}>
-              <motion.div
-                variants={itemVariants}
-                whileHover={{ scale: 1.05, y: -5 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative group cursor-pointer flex flex-col items-center gap-2"
-              >
-                {/* Glow Effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${widget.color} rounded-2xl blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300`} />
-                
-                {/* Icon Tile */}
-                <div className="relative w-16 h-16 sm:w-20 sm:h-20 bg-[#1e1f22] border border-white/5 rounded-2xl flex items-center justify-center shadow-lg group-hover:border-white/20 transition-colors">
-                  <Icon className="w-8 h-8 sm:w-10 sm:h-10 text-gray-400 group-hover:text-white transition-colors" />
+            <motion.button
+              key={w.id}
+              variants={itemVariants}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => navigate(w.path)}
+              className="relative overflow-hidden h-[120px] rounded-xl flex items-center justify-center group bg-[#111214] border border-[#2b2d31] hover:border-white/10 transition-colors"
+            >
+              <div className={`absolute inset-0 bg-gradient-to-br ${w.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+              
+              <div className="relative z-10 flex flex-col items-center gap-3">
+                <div className={`p-2 rounded bg-white/5 border border-white/5 text-white shadow-lg`}>
+                  <Icon size={20} />
                 </div>
-                
-                {/* Label */}
-                <span className="text-xs sm:text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                  {widget.label}
-                </span>
-              </motion.div>
-            </Link>
+                <span className="font-semibold text-[15px] tracking-wide text-white/90 group-hover:text-white">{w.label}</span>
+              </div>
+            </motion.button>
           );
         })}
       </motion.div>

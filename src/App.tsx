@@ -23,12 +23,22 @@ const Placeholder = ({ title }: { title: string }) => (
 );
 
 const Hub = () => (
-  <div className="min-h-screen w-full relative bg-darkBase">
+  <div className="min-h-screen w-full relative bg-[#0b0c10] text-white font-sans selection:bg-accentIndigo/30 overflow-hidden">
     <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay z-0"></div>
-    <div className="flex flex-col min-h-screen relative z-10">
-      <Home />
-      <WidgetBoard />
-      <Socials />
+    
+    <div className="relative z-10 max-w-[1400px] mx-auto min-h-screen flex flex-col lg:flex-row items-start justify-center gap-12 p-4 lg:p-12 pt-20">
+      
+      {/* Left side: Profile Card */}
+      <div className="w-full lg:w-[450px] shrink-0">
+        <Home />
+      </div>
+
+      {/* Right side: Widget Board & Socials */}
+      <div className="w-full lg:flex-1 max-w-4xl flex flex-col gap-8 mt-12 lg:mt-0">
+        <WidgetBoard />
+        <Socials />
+      </div>
+
     </div>
   </div>
 );
