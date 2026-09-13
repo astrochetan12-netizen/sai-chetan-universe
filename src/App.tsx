@@ -1,11 +1,14 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import WidgetBoard from './components/WidgetBoard';
+import Socials from './components/Socials';
 
 import Anime from './pages/Anime';
 import Manhwa from './pages/Manhwa';
 import Movies from './pages/Movies';
 import Shows from './pages/Shows';
+import Music from './pages/Music';
+import Career from './pages/Career';
 
 // Placeholders for pages
 import Layout from './components/Layout';
@@ -24,6 +27,7 @@ const Hub = () => (
     <div className="flex flex-col min-h-screen relative z-10">
       <Home />
       <WidgetBoard />
+      <Socials />
     </div>
   </div>
 );
@@ -37,11 +41,11 @@ function App() {
         <Route path="/manhwas" element={<Manhwa />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/shows" element={<Shows />} />
-        <Route path="/music" element={<Placeholder title="Music Vibes" />} />
+        <Route path="/music" element={<Music />} />
         <Route path="/writing" element={<Placeholder title="Writing" />} />
         <Route path="/photography" element={<Placeholder title="Photography" />} />
         <Route path="/gym" element={<Placeholder title="Gym" />} />
-        <Route path="/career" element={<Placeholder title="Career & Projects" />} />
+        <Route path="/career" element={<Career />} />
       </Routes>
     </BrowserRouter>
   );
