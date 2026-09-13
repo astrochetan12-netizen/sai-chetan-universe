@@ -2,6 +2,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import WidgetBoard from './components/WidgetBoard';
 
+import Anime from './pages/Anime';
+import Manhwa from './pages/Manhwa';
+
 // Placeholders for pages
 import Layout from './components/Layout';
 const Placeholder = ({ title }: { title: string }) => (
@@ -28,8 +31,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Hub />} />
-        <Route path="/anime" element={<Placeholder title="Anime Picks" />} />
-        <Route path="/manhwas" element={<Placeholder title="Manhwas & Manga" />} />
+        <Route path="/anime" element={<Anime />} />
+        <Route path="/manhwas" element={<Manhwa />} />
         <Route path="/movies" element={<Placeholder title="Movies" />} />
         <Route path="/shows" element={<Placeholder title="Shows" />} />
         <Route path="/music" element={<Placeholder title="Music Vibes" />} />
