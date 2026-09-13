@@ -4,6 +4,8 @@ import WidgetBoard from './components/WidgetBoard';
 
 import Anime from './pages/Anime';
 import Manhwa from './pages/Manhwa';
+import Movies from './pages/Movies';
+import Shows from './pages/Shows';
 
 // Placeholders for pages
 import Layout from './components/Layout';
@@ -33,8 +35,8 @@ function App() {
         <Route path="/" element={<Hub />} />
         <Route path="/anime" element={<Anime />} />
         <Route path="/manhwas" element={<Manhwa />} />
-        <Route path="/movies" element={<Placeholder title="Movies" />} />
-        <Route path="/shows" element={<Placeholder title="Shows" />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/shows" element={<Shows />} />
         <Route path="/music" element={<Placeholder title="Music Vibes" />} />
         <Route path="/writing" element={<Placeholder title="Writing" />} />
         <Route path="/photography" element={<Placeholder title="Photography" />} />
