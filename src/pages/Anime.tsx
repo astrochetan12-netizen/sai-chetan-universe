@@ -6,6 +6,21 @@ import { ChevronLeft, ChevronRight, Star, Search } from 'lucide-react';
 
 const TOP_FAV = 'Chainsaw Man';
 
+// Public thumbnail images for each top pick (MyAnimeList CDN)
+const TOP_PICK_IMAGES: Record<string, string> = {
+  'Chainsaw Man':             'https://cdn.myanimelist.net/images/anime/1806/126216.jpg',
+  'The Eminence in Shadow':   'https://cdn.myanimelist.net/images/anime/1647/117271.jpg',
+  'Naruto':                   'https://cdn.myanimelist.net/images/anime/13/17405.jpg',
+  'Your Lie in April':        'https://cdn.myanimelist.net/images/anime/3/67177.jpg',
+  'Murai in Love':            'https://cdn.myanimelist.net/images/anime/1773/139284.jpg',
+  'Darling in the Franxx':    'https://cdn.myanimelist.net/images/anime/1614/90408.jpg',
+  'My Dress-Up Darling':      'https://cdn.myanimelist.net/images/anime/1329/120123.jpg',
+  'The Dangers in My Heart':  'https://cdn.myanimelist.net/images/anime/1476/134474.jpg',
+  'ReLIFE':                   'https://cdn.myanimelist.net/images/anime/3/80389.jpg',
+  'Welcome to the NHK':       'https://cdn.myanimelist.net/images/anime/3/21243.jpg',
+  'Vinland Saga':             'https://cdn.myanimelist.net/images/anime/1500/103005.jpg',
+};
+
 // Gradient per slide index for visual variety
 const SLIDE_GRADIENTS = [
   'from-orange-500/30 to-red-900/40',
@@ -69,14 +84,22 @@ export default function Anime() {
             transition={{ duration: 0.55, ease: 'easeInOut' }}
             className={`absolute inset-0 bg-gradient-to-br ${SLIDE_GRADIENTS[currentSlide % SLIDE_GRADIENTS.length]} flex flex-col items-center justify-center gap-4 px-12`}
           >
+            {/* Anime cover art if available */}
+            {TOP_PICK_IMAGES[topPicks[currentSlide]] && (
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-25"
+                style={{ backgroundImage: `url(${TOP_PICK_IMAGES[topPicks[currentSlide]]})` }}
+              />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/40" />
             {/* Number badge */}
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/40">
+            <span className="relative z-10 text-xs font-bold uppercase tracking-[0.2em] text-white/50">
               #{currentSlide + 1} of {topPicks.length}
             </span>
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-white text-center leading-tight tracking-tighter drop-shadow-2xl">
+            <h2 className="relative z-10 text-4xl sm:text-5xl md:text-7xl font-black text-white text-center leading-tight tracking-tighter drop-shadow-2xl">
               {topPicks[currentSlide]}
             </h2>
-            <div className="flex gap-1">
+            <div className="relative z-10 flex gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} size={14} className="fill-orange-400 text-orange-400" />
               ))}

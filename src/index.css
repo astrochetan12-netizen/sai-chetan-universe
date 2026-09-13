@@ -23,9 +23,11 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Custom Krishna cursor (fine pointer = desktop/laptop only) ── */
+/* ── Custom Krishna cursor — small, 16×16 hotspot so it's not annoying ── */
 @media (pointer: fine) {
-  * { cursor: url('/assets/stickers/krishna-swing.jpg') 12 12, auto !important; }
+  * {
+    cursor: url('/assets/stickers/krishna-swing.jpg') 8 8, auto !important;
+  }
 }
 
 /* ── Styled scrollbar ──────────────────────────────────────── */

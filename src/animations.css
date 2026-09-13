@@ -1,0 +1,43 @@
+/* ── Glass Shatter page transition ─────────────────────────── */
+@keyframes shatter-in {
+  0%   { clip-path: polygon(0 0,100% 0,100% 100%,0 100%); filter: brightness(2) saturate(0); transform: scale(1.04); opacity: 0; }
+  30%  { filter: brightness(1.4) saturate(0.4); opacity: 0.6; }
+  60%  { clip-path: polygon(2% 0,98% 0,100% 98%,0 102%); filter: brightness(1) saturate(1); transform: scale(1.01); opacity: 0.9; }
+  100% { clip-path: polygon(0 0,100% 0,100% 100%,0 100%); filter: none; transform: scale(1); opacity: 1; }
+}
+
+.page-shatter-enter {
+  animation: shatter-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Shimmer / glass glint overlay ────────────────────────── */
+@keyframes glass-glint {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.glass-glint::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.08) 50%, transparent 60%);
+  background-size: 200% 100%;
+  animation: glass-glint 3s linear infinite;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ── Web corner keyframes ──────────────────────────────────── */
+@keyframes web-sway {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25%       { transform: scale(1.01) rotate(0.4deg); }
+  75%       { transform: scale(0.99) rotate(-0.4deg); }
+}
+.web-sway { animation: web-sway 6s ease-in-out infinite; }
+
+/* ── Cloud drift ───────────────────────────────────────────── */
+@keyframes cloud-drift {
+  0%   { transform: translateX(-120px); opacity: 0; }
+  5%   { opacity: 0.55; }
+  95%  { opacity: 0.55; }
+  100% { transform: translateX(110vw); opacity: 0; }
+}

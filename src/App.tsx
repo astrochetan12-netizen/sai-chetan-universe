@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import './animations.css';
+import FloatingClouds from './components/FloatingClouds';
 import Home from './components/Home';
 import WidgetBoard from './components/WidgetBoard';
 import Socials from './components/Socials';
@@ -15,12 +17,12 @@ import WIP from './pages/WIP';
 const Hub = () => (
   <div className="min-h-screen w-full relative bg-[#0b0c10] text-white overflow-hidden">
     <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.15] pointer-events-none mix-blend-overlay z-0" />
+    {/* Clouds on home page */}
+    <FloatingClouds />
     <div className="relative z-10 max-w-[1400px] mx-auto min-h-screen flex flex-col lg:flex-row items-start justify-center gap-12 p-4 lg:p-12 pt-20">
-      {/* Left: Profile Card */}
       <div className="w-full lg:w-[460px] shrink-0">
         <Home />
       </div>
-      {/* Right: Widget Board + Socials */}
       <div className="w-full lg:flex-1 max-w-2xl flex flex-col gap-8 mt-8 lg:mt-0">
         <WidgetBoard />
         <Socials />

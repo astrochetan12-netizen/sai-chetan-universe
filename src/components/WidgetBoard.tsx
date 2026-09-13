@@ -1,17 +1,18 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { PlaySquare, BookOpen, Film, Tv, Music, PenTool, Camera, Dumbbell, Briefcase } from 'lucide-react';
+import { ShatterOverlay, useShatter } from './ShatterOverlay';
 
 const WIDGETS = [
-  { id: 'anime',       label: 'Anime',       icon: PlaySquare, glowColor: '#f97316', path: '/anime' },
-  { id: 'manhwas',     label: 'Manhwas',     icon: BookOpen,   glowColor: '#6366f1', path: '/manhwas' },
-  { id: 'movies',      label: 'Movies',      icon: Film,       glowColor: '#f59e0b', path: '/movies' },
-  { id: 'shows',       label: 'Shows',       icon: Tv,         glowColor: '#ef4444', path: '/shows' },
-  { id: 'music',       label: 'Music',       icon: Music,      glowColor: '#22c55e', path: '/music' },
-  { id: 'writing',     label: 'Writing',     icon: PenTool,    glowColor: '#a855f7', path: '/writing' },
-  { id: 'photography', label: 'Photography', icon: Camera,     glowColor: '#06b6d4', path: '/photography' },
-  { id: 'gym',         label: 'Gym',         icon: Dumbbell,   glowColor: '#94a3b8', path: '/gym' },
-  { id: 'career',      label: 'Career',      icon: Briefcase,  glowColor: '#14b8a6', path: '/career' },
+  { id: 'anime',       label: 'Anime',       icon: PlaySquare, glowColor: '#f97316', path: '/anime',       emoji: '⚔️' },
+  { id: 'manhwas',     label: 'Manhwas',     icon: BookOpen,   glowColor: '#6366f1', path: '/manhwas',     emoji: '📖' },
+  { id: 'movies',      label: 'Movies',      icon: Film,       glowColor: '#f59e0b', path: '/movies',      emoji: '🎬' },
+  { id: 'shows',       label: 'Shows',       icon: Tv,         glowColor: '#ef4444', path: '/shows',       emoji: '📺' },
+  { id: 'music',       label: 'Music',       icon: Music,      glowColor: '#22c55e', path: '/music',       emoji: '🎵' },
+  { id: 'writing',     label: 'Writing',     icon: PenTool,    glowColor: '#a855f7', path: '/writing',     emoji: '✍️' },
+  { id: 'photography', label: 'Photography', icon: Camera,     glowColor: '#06b6d4', path: '/photography', emoji: '📷' },
+  { id: 'gym',         label: 'Gym',         icon: Dumbbell,   glowColor: '#94a3b8', path: '/gym',         emoji: '🏋️' },
+  { id: 'career',      label: 'Career',      icon: Briefcase,  glowColor: '#14b8a6', path: '/career',      emoji: '💼' },
 ];
 
 const containerVariants = {
@@ -26,9 +27,17 @@ const itemVariants = {
 
 export default function WidgetBoard() {
   const navigate = useNavigate();
+  const { shattering, triggerShatter } = useShatter();
+
+  const handleClick = (path: string) => {
+    triggerShatter();
+    setTimeout(() => navigate(path), 280);
+  };
 
   return (
     <div className="w-full text-white">
+      {/* Glass shatter overlay */}
+      <ShatterOverlay isVisible={shattering} />
 
       {/* Discord-style tabs */}
       <div className="flex items-center gap-6 border-b border-white/5 pb-4 mb-8 text-[15px] font-medium">
@@ -51,7 +60,7 @@ export default function WidgetBoard() {
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="grid grid-cols-2 gap-4"
+        className="grid grid-cols-2 gap-3"
       >
         {WIDGETS.map((w) => {
           const Icon = w.icon;
@@ -60,42 +69,36 @@ export default function WidgetBoard() {
               key={w.id}
               variants={itemVariants}
               whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={() => navigate(w.path)}
-              className="group relative overflow-hidden h-[110px] rounded-xl flex items-center gap-5 px-6 bg-[#111214] border border-[#2b2d31] hover:border-white/10 transition-all duration-200 text-left"
-              style={{
-                // Subtle glow on the border on hover — done via box-shadow, not a bright blob
-              }}
+              whileTap={{ scale: 0.96 }}
+              onClick={() => handleClick(w.path)}
+              className="group relative overflow-hidden h-[110px] rounded-xl flex items-center gap-4 px-5 bg-[#111214] border border-[#2b2d31] hover:border-white/10 transition-all duration-200 text-left glass-glint"
             >
-              {/* Very subtle colored bg wash on hover only */}
+              {/* Coloured radial wash on hover */}
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"
-                style={{ background: `radial-gradient(ellipse at center, ${w.glowColor}18 0%, transparent 70%)` }}
+                style={{ background: `radial-gradient(ellipse at 30% 50%, ${w.glowColor}18 0%, transparent 70%)` }}
               />
 
-              {/* Icon container — subtle glow ring on hover */}
-              <div
-                className="relative z-10 shrink-0 w-11 h-11 rounded-xl flex items-center justify-center bg-white/5 border border-white/8 text-white/60 group-hover:text-white transition-colors duration-200"
-                style={{
-                  // icon glow: gentle, not blinding
-                }}
-              >
+              {/* Emoji badge top-right */}
+              <div className="absolute top-2.5 right-3 text-base opacity-40 group-hover:opacity-80 transition-opacity">
+                {w.emoji}
+              </div>
+
+              {/* Icon with glow ring */}
+              <div className="relative z-10 shrink-0 w-11 h-11 rounded-xl flex items-center justify-center bg-white/5 border border-white/8 text-white/50 group-hover:text-white transition-colors duration-200">
                 <Icon size={22} />
-                {/* glow ring: only visible on hover, very soft */}
                 <div
                   className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{
-                    boxShadow: `0 0 12px 2px ${w.glowColor}55`,
-                  }}
+                  style={{ boxShadow: `0 0 14px 2px ${w.glowColor}55` }}
                 />
               </div>
 
-              {/* Label */}
+              {/* Text */}
               <div className="relative z-10">
-                <p className="text-[16px] font-semibold text-white/80 group-hover:text-white transition-colors duration-200">
+                <p className="text-[16px] font-semibold text-white/80 group-hover:text-white transition-colors duration-200 leading-tight">
                   {w.label}
                 </p>
-                <p className="text-[12px] text-white/30 mt-0.5 group-hover:text-white/50 transition-colors duration-200">
+                <p className="text-[11px] text-white/25 mt-0.5 group-hover:text-white/45 transition-colors duration-200">
                   Tap to explore →
                 </p>
               </div>
