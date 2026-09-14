@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
@@ -228,7 +229,7 @@ interface StickerDef {
   side: 'left' | 'right';
   top: string;
   delay: number;
-  content: React.ReactNode;
+  content: ReactNode;
 }
 
 const LEFT_STICKERS: StickerDef[] = [

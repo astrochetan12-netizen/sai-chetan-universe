@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 // Tiny clouds drifting across the bottom-most area with organic speeds and paths
 const CLOUD_PARTICLES = [
@@ -23,11 +23,11 @@ export default function BottomMotionClouds() {
           className="absolute pointer-events-none"
           style={{
             bottom: cloud.bottom,
-            scale: cloud.scale,
             filter: 'blur(0.5px) drop-shadow(0 2px 8px rgba(180, 220, 240, 0.15))',
           }}
           initial={{
             x: cloud.startX,
+            scale: cloud.scale,
             opacity: 0,
           }}
           animate={{
