@@ -54,7 +54,7 @@ const SOCIALS = [
     id: 'spotify',
     platform: 'Spotify',
     handle: '.sai chetan',
-    note: 'See what I'm listening to',
+    note: "See what I'm listening to",
     href: 'https://open.spotify.com/user/7b9xyt1jj2hsdqqb27g3yyeka',
     bg: '#1DB954',
     dim: '#1DB95420',
