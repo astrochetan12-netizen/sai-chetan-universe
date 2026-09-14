@@ -4,7 +4,7 @@ import { ChevronDown } from 'lucide-react';
 // ── 1. Bocchi the Rock "Scroll Down" Sticker (Music page) ──────
 export function BocchiScrollDown({ className = '' }: { className?: string }) {
   const handleScroll = () => {
-    window.scrollBy({ top: 500, behavior: 'smooth' });
+    window.scrollBy({ top: 520, behavior: 'smooth' });
   };
 
   return (
@@ -17,48 +17,22 @@ export function BocchiScrollDown({ className = '' }: { className?: string }) {
       className={`fixed right-3 sm:right-6 bottom-8 z-40 cursor-pointer select-none flex flex-col items-center group ${className}`}
       title="Bocchi says: Scroll down please..."
     >
+      {/* Real Bocchi cutout from user's sticker pack */}
       <div className="relative w-28 sm:w-32 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.85)]">
-        <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-          {/* Sticker white border */}
-          <circle cx="60" cy="55" r="40" fill="white" stroke="white" strokeWidth="8" />
-          {/* Pink hair */}
-          <ellipse cx="60" cy="30" rx="38" ry="28" fill="#f9a8d4" />
-          <ellipse cx="60" cy="45" rx="35" ry="22" fill="#f9a8d4" />
-          {/* Side hair strands */}
-          <ellipse cx="25" cy="55" rx="12" ry="20" fill="#f9a8d4" />
-          <ellipse cx="95" cy="55" rx="12" ry="20" fill="#f9a8d4" />
-          {/* Face */}
-          <ellipse cx="60" cy="58" rx="30" ry="28" fill="#ffe4c4" />
-          {/* Eyes - worried */}
-          <ellipse cx="48" cy="54" rx="5" ry="7" fill="#1e3a5f" />
-          <ellipse cx="72" cy="54" rx="5" ry="7" fill="#1e3a5f" />
-          <circle cx="50" cy="52" r="2" fill="white" />
-          <circle cx="74" cy="52" r="2" fill="white" />
-          {/* Sweat drop */}
-          <ellipse cx="88" cy="45" rx="4" ry="5" fill="#93c5fd" opacity="0.8" />
-          {/* Blush */}
-          <ellipse cx="44" cy="62" rx="7" ry="4" fill="#fca5a5" opacity="0.6" />
-          <ellipse cx="76" cy="62" rx="7" ry="4" fill="#fca5a5" opacity="0.6" />
-          {/* Mouth - nervous */}
-          <path d="M54,68 Q60,72 66,68" stroke="#b45309" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-          {/* Hair accessory */}
-          <rect x="50" y="24" width="8" height="4" rx="2" fill="#dc2626" />
-          {/* Body / guitar */}
-          <rect x="35" y="84" width="50" height="45" rx="8" fill="#831843" />
-          <ellipse cx="60" cy="118" rx="20" ry="15" fill="#9f1239" />
-          <line x1="60" y1="85" x2="60" y2="130" stroke="#f59e0b" strokeWidth="2" />
-          <line x1="50" y1="92" x2="70" y2="92" stroke="#f59e0b" strokeWidth="1" />
-          <line x1="50" y1="96" x2="70" y2="96" stroke="#f59e0b" strokeWidth="1" />
-          <line x1="50" y1="100" x2="70" y2="100" stroke="#f59e0b" strokeWidth="1" />
-          <path d="M75,108 L95,120 L85,122 Z" fill="#ffe4c4" />
-        </svg>
+        <img
+          src="/assets/stickers/bocchi_clean.png"
+          alt="Bocchi the Rock"
+          className="w-full h-auto object-contain"
+        />
       </div>
+
+      {/* Speech bubble */}
       <motion.div
         animate={{ y: [0, 4, 0] }}
         transition={{ duration: 1.3, repeat: Infinity, ease: 'easeInOut' }}
-        className="mt-1 flex items-center gap-1 bg-pink-600/90 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg border border-pink-300/40 uppercase tracking-wider font-mono"
+        className="mt-1 flex items-center gap-1 bg-pink-600/95 text-white text-[11px] font-black px-3 py-1 rounded-full shadow-lg border border-pink-300/40 uppercase tracking-wider font-mono"
       >
-        <span>Scroll... (sobs)</span>
+        <span>Scroll... please 🎸</span>
         <ChevronDown size={12} className="animate-bounce" />
       </motion.div>
     </motion.div>
@@ -131,7 +105,7 @@ export function SpiderManScroll({ className = '' }: { className?: string }) {
 
       {/* Comic dialogue badge */}
       <div className="mt-2 bg-red-600 text-white font-black text-[10px] px-2.5 py-1 rounded-lg border border-yellow-400 shadow-md uppercase tracking-wider font-mono">
-        Scroll down!
+        🕷️ Scroll down! 👇
       </div>
     </motion.div>
   );
@@ -158,7 +132,7 @@ export function TanjiroWaterDragon({ className = '' }: { className?: string }) {
         />
       </div>
       <div className="text-center mt-1 bg-cyan-950/80 border border-cyan-400/40 text-cyan-300 text-[10px] font-black px-2.5 py-1 rounded-full shadow-lg font-mono">
-        Water Breathing: Tenth Form!
+        🌊 Water Breathing: Tenth Form!
       </div>
     </motion.div>
   );
@@ -182,7 +156,7 @@ export function CidShadowThrone({ className = '' }: { className?: string }) {
         />
       </div>
       <div className="text-center mt-1 bg-purple-950/90 border border-purple-500/40 text-purple-300 text-[10px] font-black px-2.5 py-1 rounded-full shadow-lg font-mono">
-        I am Atomic...
+        ☕ "I am Atomic..."
       </div>
     </motion.div>
   );
@@ -220,31 +194,19 @@ export function SaitamaRegimenCard() {
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
-      className="p-5 rounded-2xl bg-yellow-950/25 border-2 border-yellow-500/40 shadow-xl max-w-md mx-auto my-6 text-center select-none"
+      className="p-5 rounded-2xl bg-yellow-950/30 border-2 border-yellow-500/50 shadow-2xl max-w-md mx-auto my-6 text-center select-none"
     >
-      {/* Saitama SVG chibi */}
-      <div className="flex justify-center mb-3">
-        <svg viewBox="0 0 100 110" className="w-24 h-24" xmlns="http://www.w3.org/2000/svg">
-          <rect x="30" y="60" width="40" height="42" rx="6" fill="#fbbf24" />
-          <path d="M25,65 Q10,80 15,100 L30,95 Z" fill="#dc2626" />
-          <path d="M75,65 Q90,80 85,100 L70,95 Z" fill="#dc2626" />
-          <ellipse cx="50" cy="42" rx="28" ry="30" fill="#ffe0b2" />
-          <ellipse cx="40" cy="28" rx="8" ry="5" fill="white" opacity="0.4" />
-          <ellipse cx="42" cy="42" rx="5" ry="5" fill="white" stroke="#374151" strokeWidth="1" />
-          <ellipse cx="58" cy="42" rx="5" ry="5" fill="white" stroke="#374151" strokeWidth="1" />
-          <circle cx="43" cy="43" r="2.5" fill="#374151" />
-          <circle cx="59" cy="43" r="2.5" fill="#374151" />
-          <line x1="44" y1="52" x2="56" y2="52" stroke="#374151" strokeWidth="2" strokeLinecap="round" />
-          <ellipse cx="20" cy="80" rx="10" ry="10" fill="#dc2626" />
-          <ellipse cx="80" cy="80" rx="10" ry="10" fill="#dc2626" />
-          <rect x="30" y="68" width="40" height="5" rx="2" fill="white" />
-          <rect x="32" y="96" width="14" height="10" rx="3" fill="#dc2626" />
-          <rect x="54" y="96" width="14" height="10" rx="3" fill="#dc2626" />
-          <text x="50" y="15" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#374151" fontFamily="monospace">OKAY.</text>
-        </svg>
+      {/* Real Saitama 100 Pushups sticker from user pack */}
+      <div className="flex justify-center mb-2">
+        <img
+          src="/assets/stickers/saitama_100pushups_clean.png"
+          alt="Saitama 100 Pushups"
+          className="w-44 sm:w-48 h-auto object-contain filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.85)]"
+        />
       </div>
+
       <div className="inline-block px-3 py-1 rounded-full bg-yellow-500/20 border border-yellow-400/40 text-yellow-400 text-xs font-black font-mono uppercase mb-2">
-        One Punch Man Secret Regimen
+        👊 One Punch Man Secret Regimen
       </div>
       <h4 className="text-xl font-black text-white tracking-tight">
         100 PUSHUPS · 100 SITUPS · 100 SQUATS
@@ -253,7 +215,7 @@ export function SaitamaRegimenCard() {
         + 10KM RUN — EVERY SINGLE DAY!
       </p>
       <p className="text-xs text-white/60 mt-2 italic">
-        "Never use the AC in summer, or heat in winter... that strengthens the mind!" — Saitama
+        "Never use the AC in summer, or heat in winter... that strengthens the mind!" — Saitama 🥚
       </p>
     </motion.div>
   );
@@ -275,25 +237,16 @@ const LEFT_STICKERS: StickerDef[] = [
     top: '22%',
     delay: 0,
     content: (
-      <div className="text-center">
-        <svg viewBox="0 0 80 90" className="w-14 h-14" xmlns="http://www.w3.org/2000/svg">
-          {/* Face */}
-          <ellipse cx="40" cy="48" rx="26" ry="28" fill="#e2e8f0" />
-          {/* White hair */}
-          <ellipse cx="40" cy="26" rx="28" ry="20" fill="#f8fafc" />
-          <ellipse cx="16" cy="38" rx="10" ry="16" fill="#f8fafc" />
-          <ellipse cx="64" cy="38" rx="10" ry="16" fill="#f8fafc" />
-          {/* Blindfold */}
-          <rect x="16" y="40" width="48" height="12" rx="6" fill="#1a1a2e" />
-          <rect x="14" y="41" width="52" height="10" rx="5" fill="#0f172a" />
-          {/* Smirk */}
-          <path d="M32,62 Q40,68 48,62" stroke="#1e293b" strokeWidth="2" fill="none" strokeLinecap="round" />
-          {/* Body */}
-          <rect x="22" y="74" width="36" height="14" rx="5" fill="#1e293b" />
-          <text x="40" y="86" textAnchor="middle" fontSize="6" fontWeight="bold" fill="#94a3b8" fontFamily="monospace">NAH ID WIN</text>
-        </svg>
-        <div className="text-[9px] font-black text-white/70 font-mono mt-0.5 bg-black/60 px-1.5 py-0.5 rounded-full border border-white/10">
-          Gojo
+      <div className="text-center group cursor-pointer pointer-events-auto">
+        <div className="w-16 sm:w-20 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)] hover:scale-110 transition-transform">
+          <img
+            src="/assets/stickers/gojo_blindfold_clean.png"
+            alt="Gojo Satoru"
+            className="w-full h-auto object-contain"
+          />
+        </div>
+        <div className="text-[9px] font-black text-white/80 font-mono mt-1 bg-black/80 px-2 py-0.5 rounded-full border border-white/20 shadow-md">
+          Gojo · NAH ID WIN
         </div>
       </div>
     ),
@@ -301,30 +254,19 @@ const LEFT_STICKERS: StickerDef[] = [
   {
     id: 'anya-left',
     side: 'left',
-    top: '42%',
+    top: '46%',
     delay: 1.2,
     content: (
-      <div className="text-center">
-        <svg viewBox="0 0 80 90" className="w-14 h-14" xmlns="http://www.w3.org/2000/svg">
-          {/* Face */}
-          <ellipse cx="40" cy="50" rx="24" ry="26" fill="#ffe4c4" />
-          {/* Pink hair */}
-          <ellipse cx="40" cy="30" rx="28" ry="22" fill="#fda4af" />
-          {/* Ahoges */}
-          <ellipse cx="30" cy="15" rx="8" ry="10" fill="#fda4af" />
-          <ellipse cx="50" cy="15" rx="8" ry="10" fill="#fda4af" />
-          {/* Eyes - heh squint */}
-          <path d="M30,48 Q34,54 38,48" stroke="#1e293b" strokeWidth="2" fill="none" strokeLinecap="round" />
-          <path d="M42,48 Q46,54 50,48" stroke="#1e293b" strokeWidth="2" fill="none" strokeLinecap="round" />
-          {/* Blush */}
-          <ellipse cx="28" cy="56" rx="6" ry="3.5" fill="#fca5a5" opacity="0.7" />
-          <ellipse cx="52" cy="56" rx="6" ry="3.5" fill="#fca5a5" opacity="0.7" />
-          {/* Body - uniform */}
-          <rect x="22" y="74" width="36" height="14" rx="4" fill="white" />
-          <rect x="37" y="74" width="6" height="12" rx="2" fill="#dc2626" />
-        </svg>
-        <div className="text-[9px] font-black text-pink-300 font-mono mt-0.5 bg-black/60 px-1.5 py-0.5 rounded-full border border-pink-500/30">
-          Anya heh
+      <div className="text-center group cursor-pointer pointer-events-auto">
+        <div className="w-16 sm:w-20 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)] hover:scale-110 transition-transform">
+          <img
+            src="/assets/stickers/anya_smug_clean.png"
+            alt="Anya Heh"
+            className="w-full h-auto object-contain"
+          />
+        </div>
+        <div className="text-[9px] font-black text-pink-300 font-mono mt-1 bg-black/80 px-2 py-0.5 rounded-full border border-pink-500/30 shadow-md">
+          Anya heh 😏
         </div>
       </div>
     ),
@@ -332,32 +274,19 @@ const LEFT_STICKERS: StickerDef[] = [
   {
     id: 'eren-left',
     side: 'left',
-    top: '64%',
+    top: '70%',
     delay: 2.1,
     content: (
-      <div className="text-center">
-        <svg viewBox="0 0 80 90" className="w-14 h-14" xmlns="http://www.w3.org/2000/svg">
-          {/* Face */}
-          <ellipse cx="40" cy="47" rx="26" ry="28" fill="#d4a57a" />
-          {/* Dark hair */}
-          <ellipse cx="40" cy="26" rx="26" ry="18" fill="#2d3748" />
-          <ellipse cx="19" cy="40" rx="10" ry="18" fill="#2d3748" />
-          <ellipse cx="61" cy="40" rx="10" ry="18" fill="#2d3748" />
-          {/* Green eyes */}
-          <ellipse cx="31" cy="46" rx="7" ry="7" fill="#68d391" />
-          <ellipse cx="49" cy="46" rx="7" ry="7" fill="#68d391" />
-          <ellipse cx="31" cy="46" rx="4" ry="5" fill="#1a202c" />
-          <ellipse cx="49" cy="46" rx="4" ry="5" fill="#1a202c" />
-          <circle cx="33" cy="44" r="1.5" fill="white" />
-          <circle cx="51" cy="44" r="1.5" fill="white" />
-          {/* Stern mouth */}
-          <line x1="33" y1="58" x2="47" y2="58" stroke="#744210" strokeWidth="2" strokeLinecap="round" />
-          {/* Survey Corps jacket */}
-          <rect x="22" y="73" width="36" height="15" rx="4" fill="#2d4a2d" />
-          <text x="40" y="84" textAnchor="middle" fontSize="5" fill="#a7f3d0" fontFamily="monospace" fontWeight="bold">TATAKAE</text>
-        </svg>
-        <div className="text-[9px] font-black text-green-300 font-mono mt-0.5 bg-black/60 px-1.5 py-0.5 rounded-full border border-green-500/30">
-          TATAKAE!
+      <div className="text-center group cursor-pointer pointer-events-auto">
+        <div className="w-16 sm:w-20 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)] hover:scale-110 transition-transform">
+          <img
+            src="/assets/stickers/eren_tatakae_clean.png"
+            alt="Eren Tatakae"
+            className="w-full h-auto object-contain"
+          />
+        </div>
+        <div className="text-[9px] font-black text-green-300 font-mono mt-1 bg-black/80 px-2 py-0.5 rounded-full border border-green-500/30 shadow-md">
+          TATAKAE! ⚔️
         </div>
       </div>
     ),
@@ -371,27 +300,16 @@ const RIGHT_STICKERS: StickerDef[] = [
     top: '25%',
     delay: 0.5,
     content: (
-      <div className="text-center">
-        <svg viewBox="0 0 80 90" className="w-14 h-14" xmlns="http://www.w3.org/2000/svg">
-          {/* Bald head */}
-          <ellipse cx="40" cy="40" rx="28" ry="30" fill="#ffe0b2" />
-          <ellipse cx="32" cy="26" rx="8" ry="5" fill="white" opacity="0.3" />
-          {/* Blank eyes */}
-          <ellipse cx="33" cy="40" rx="5" ry="5" fill="white" stroke="#555" strokeWidth="1" />
-          <ellipse cx="47" cy="40" rx="5" ry="5" fill="white" stroke="#555" strokeWidth="1" />
-          <circle cx="34" cy="41" r="2.5" fill="#555" />
-          <circle cx="48" cy="41" r="2.5" fill="#555" />
-          {/* Deadpan mouth */}
-          <line x1="35" y1="50" x2="45" y2="50" stroke="#555" strokeWidth="2" strokeLinecap="round" />
-          {/* Yellow suit */}
-          <rect x="22" y="68" width="36" height="20" rx="5" fill="#fbbf24" />
-          {/* Gloves */}
-          <ellipse cx="18" cy="78" rx="9" ry="9" fill="#dc2626" />
-          <ellipse cx="62" cy="78" rx="9" ry="9" fill="#dc2626" />
-          <text x="40" y="14" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#374151" fontFamily="monospace">OKAY.</text>
-        </svg>
-        <div className="text-[9px] font-black text-yellow-300 font-mono mt-0.5 bg-black/60 px-1.5 py-0.5 rounded-full border border-yellow-500/30">
-          Saitama
+      <div className="text-center group cursor-pointer pointer-events-auto">
+        <div className="w-16 sm:w-20 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)] hover:scale-110 transition-transform">
+          <img
+            src="/assets/stickers/saitama_shrug_clean.png"
+            alt="Saitama Shrug"
+            className="w-full h-auto object-contain"
+          />
+        </div>
+        <div className="text-[9px] font-black text-yellow-300 font-mono mt-1 bg-black/80 px-2 py-0.5 rounded-full border border-yellow-500/30 shadow-md">
+          Saitama 👊 OKAY.
         </div>
       </div>
     ),
@@ -399,34 +317,19 @@ const RIGHT_STICKERS: StickerDef[] = [
   {
     id: 'rem-right',
     side: 'right',
-    top: '48%',
+    top: '50%',
     delay: 1.8,
     content: (
-      <div className="text-center">
-        <svg viewBox="0 0 80 90" className="w-14 h-14" xmlns="http://www.w3.org/2000/svg">
-          {/* Face */}
-          <ellipse cx="40" cy="50" rx="24" ry="26" fill="#ffe4e6" />
-          {/* Blue hair */}
-          <ellipse cx="40" cy="30" rx="26" ry="20" fill="#60a5fa" />
-          <ellipse cx="17" cy="44" rx="10" ry="18" fill="#60a5fa" />
-          {/* Hair ornament */}
-          <circle cx="26" cy="22" r="5" fill="#93c5fd" />
-          {/* Blue eyes */}
-          <ellipse cx="33" cy="50" rx="6" ry="6" fill="#3b82f6" />
-          <ellipse cx="47" cy="50" rx="6" ry="6" fill="#3b82f6" />
-          <circle cx="34" cy="48" r="2" fill="white" />
-          <circle cx="48" cy="48" r="2" fill="white" />
-          {/* Blush */}
-          <ellipse cx="27" cy="56" rx="6" ry="3" fill="#fca5a5" opacity="0.7" />
-          <ellipse cx="53" cy="56" rx="6" ry="3" fill="#fca5a5" opacity="0.7" />
-          {/* Smile */}
-          <path d="M34,62 Q40,67 46,62" stroke="#be185d" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-          {/* Maid body */}
-          <rect x="22" y="74" width="36" height="14" rx="4" fill="#1e3a5f" />
-          <rect x="28" y="74" width="24" height="6" fill="white" opacity="0.8" />
-        </svg>
-        <div className="text-[9px] font-black text-blue-300 font-mono mt-0.5 bg-black/60 px-1.5 py-0.5 rounded-full border border-blue-500/30">
-          Rem
+      <div className="text-center group cursor-pointer pointer-events-auto">
+        <div className="w-16 sm:w-20 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)] hover:scale-110 transition-transform">
+          <img
+            src="/assets/stickers/rem_emilia_clean.png"
+            alt="Rem"
+            className="w-full h-auto object-contain"
+          />
+        </div>
+        <div className="text-[9px] font-black text-blue-300 font-mono mt-1 bg-black/80 px-2 py-0.5 rounded-full border border-blue-500/30 shadow-md">
+          Rem 💙 Re:Zero
         </div>
       </div>
     ),
@@ -434,20 +337,19 @@ const RIGHT_STICKERS: StickerDef[] = [
   {
     id: 'subaru-right',
     side: 'right',
-    top: '70%',
+    top: '72%',
     delay: 0.9,
     content: (
-      <div className="text-center">
-        <div className="bg-black/70 border border-white/20 rounded-xl px-2 py-2 text-center w-24">
-          <div className="text-[10px] font-black text-white/80 font-mono leading-tight">
-            Subaru's Day:
-          </div>
-          <div className="text-[9px] font-mono text-red-300 mt-0.5 leading-snug">
-            09:00 - DIE<br />
-            09:01 - DIE<br />
-            09:02 - DIE
-          </div>
-          <div className="text-[9px] text-white/50 mt-0.5">Re:Zero</div>
+      <div className="text-center group cursor-pointer pointer-events-auto">
+        <div className="w-20 sm:w-24 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)] hover:scale-105 transition-transform">
+          <img
+            src="/assets/stickers/subaru_schedule_clean.png"
+            alt="Subaru Daily Schedule"
+            className="w-full h-auto object-contain"
+          />
+        </div>
+        <div className="text-[9px] font-black text-red-300 font-mono mt-1 bg-black/80 px-2 py-0.5 rounded-full border border-red-500/30 shadow-md">
+          Subaru 💀 09:00 DIE
         </div>
       </div>
     ),
@@ -461,11 +363,11 @@ export function GlobalSideStickers() {
       {LEFT_STICKERS.map((sticker) => (
         <motion.div
           key={sticker.id}
-          className="fixed left-1 sm:left-2 z-20 pointer-events-none select-none hidden xl:flex flex-col items-center"
+          className="fixed left-2 sm:left-4 z-20 pointer-events-none select-none hidden xl:flex flex-col items-center"
           style={{ top: sticker.top }}
-          animate={{ y: [0, -8, 0] }}
+          animate={{ y: [0, -10, 0] }}
           transition={{
-            duration: 3 + sticker.delay * 0.5,
+            duration: 3.2 + sticker.delay * 0.4,
             repeat: Infinity,
             ease: 'easeInOut',
             delay: sticker.delay,
@@ -479,11 +381,11 @@ export function GlobalSideStickers() {
       {RIGHT_STICKERS.map((sticker) => (
         <motion.div
           key={sticker.id}
-          className="fixed right-1 sm:right-2 z-20 pointer-events-none select-none hidden xl:flex flex-col items-center"
+          className="fixed right-2 sm:right-4 z-20 pointer-events-none select-none hidden xl:flex flex-col items-center"
           style={{ top: sticker.top }}
-          animate={{ y: [0, -8, 0] }}
+          animate={{ y: [0, -10, 0] }}
           transition={{
-            duration: 3 + sticker.delay * 0.5,
+            duration: 3.2 + sticker.delay * 0.4,
             repeat: Infinity,
             ease: 'easeInOut',
             delay: sticker.delay,
