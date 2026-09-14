@@ -17,6 +17,21 @@ export default function WIP({ section }: { section: 'writing' | 'gym' }) {
       >
         <ScrollDownYuji />
 
+        {/* Floating Saitama side sticker */}
+        <motion.div
+          animate={{ y: [0, -15, 0], rotate: [-3, 3, -3] }}
+          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+          className="fixed left-4 bottom-24 z-30 pointer-events-none select-none hidden lg:block"
+        >
+          <div className="bg-black/80 border-2 border-yellow-500/50 rounded-2xl p-3 text-center shadow-xl">
+            <div className="text-3xl">👊</div>
+            <div className="text-[10px] font-black text-yellow-300 font-mono mt-1">100 PUSHUPS</div>
+            <div className="text-[10px] font-mono text-yellow-200">100 SITUPS</div>
+            <div className="text-[10px] font-mono text-yellow-200">10KM RUN</div>
+            <div className="text-[9px] text-white/50 mt-1 italic">every. single. day.</div>
+          </div>
+        </motion.div>
+
         <div className="max-w-4xl mx-auto py-8">
           {/* Hero Motivation Banner */}
           <div className="relative p-8 md:p-12 rounded-3xl overflow-hidden bg-gradient-to-br from-[#121316] via-[#1a1b20] to-[#0c0d10] border border-white/10 shadow-2xl mb-12 text-center">

@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import { Play, Pause, ExternalLink, Music2, Disc, Sparkles } from 'lucide-react';
-import { TanjiroWaterDragon, ScrollDownYuji } from '../components/AnimeStickers';
+import { TanjiroWaterDragon, BocchiScrollDown } from '../components/AnimeStickers';
 
 interface ArtistCard {
   name: string;
@@ -75,7 +75,7 @@ const MUSIC_SECTIONS: LanguageSection[] = [
       {
         name: 'One Direction',
         badge: 'Favorite Band 🎸',
-        img: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=200&auto=format&fit=crop&q=80',
+        img: 'https://i.scdn.co/image/ab6761610000e5ebb2bc4af57bd9742a8a9e1c6d',
         spotify: 'https://open.spotify.com/artist/4AK6F7OLvEQ5QYCBNiQWHq',
         comment: 'My all-time favorite boyband · pure nostalgic comfort and memories',
         pinnedEmoji: '🎸',
@@ -83,7 +83,7 @@ const MUSIC_SECTIONS: LanguageSection[] = [
       {
         name: 'XXXTENTACION',
         badge: 'Favorite Rapper 🖤',
-        img: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=200&auto=format&fit=crop&q=80',
+        img: 'https://i.scdn.co/image/ab6761610000e5eb692dca9dfc47d8a3bf8fb7f5',
         spotify: 'https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxyY',
         comment: 'Legends Never Die 🕊️ · Look at me, Hope, and raw vulnerability · LLJ',
         pinnedEmoji: '🕊️',
@@ -91,7 +91,7 @@ const MUSIC_SECTIONS: LanguageSection[] = [
       {
         name: 'The Weeknd',
         badge: 'XO Night Owl 🌙',
-        img: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=200&auto=format&fit=crop&q=80',
+        img: 'https://i.scdn.co/image/ab6761610000e5eb214f3cf1cbe7139c1e26ffbb',
         spotify: 'https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ',
         comment: 'King of midnight synthwave & haunting melancholia',
         pinnedEmoji: '🌙',
@@ -99,7 +99,7 @@ const MUSIC_SECTIONS: LanguageSection[] = [
       {
         name: 'Justin Bieber',
         badge: 'Pop Royalty 💛',
-        img: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=200&auto=format&fit=crop&q=80',
+        img: 'https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36',
         spotify: 'https://open.spotify.com/artist/1uNFoZAHBGtllmzznpCI3s',
         comment: 'Justice era, Ghost, and Hold On acoustic brilliance on repeat',
         pinnedEmoji: '💛',
@@ -107,7 +107,7 @@ const MUSIC_SECTIONS: LanguageSection[] = [
       {
         name: 'Charlie Puth',
         badge: 'Pitch Perfect 🎹',
-        img: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&auto=format&fit=crop&q=80',
+        img: 'https://i.scdn.co/image/ab6761610000e5eb19b8d0789f6d3d2f2ee48f0c',
         spotify: 'https://open.spotify.com/artist/6VuMaDmys5Jw1kZcuqqJaU',
         comment: 'Absolute earworm production and harmonic genius',
         pinnedEmoji: '🎹',
@@ -120,7 +120,7 @@ const MUSIC_SECTIONS: LanguageSection[] = [
     flag: '🇮🇳',
     playableSong: 'Master The Blaster',
     playableArtist: 'Anirudh Ravichander',
-    playableCover: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=200&auto=format&fit=crop&q=80',
+    playableCover: 'https://i.scdn.co/image/ab67616d0000b273a16e7cf09e3fde98b09b2b8a',
     audioSrc: '/assets/audio/telugu_track.mp3',
     color: '#818cf8',
     bgGlow: 'rgba(129, 140, 248, 0.18)',
@@ -128,29 +128,29 @@ const MUSIC_SECTIONS: LanguageSection[] = [
       {
         title: 'Master The Blaster',
         artist: 'Anirudh (Master)',
-        cover: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=200&auto=format&fit=crop&q=80',
+        cover: 'https://i.scdn.co/image/ab67616d0000b273a16e7cf09e3fde98b09b2b8a',
       },
       {
         title: 'Gaali Vaaluga',
         artist: 'Anirudh (Agnyaathavaasi)',
-        cover: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200&auto=format&fit=crop&q=80',
+        cover: 'https://i.scdn.co/image/ab67616d0000b273c31c3b2ab29d7dd4a7c13b02',
       },
       {
         title: 'Hukum (Tiger Ka Hukum)',
         artist: 'Anirudh (Jailer)',
-        cover: 'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=200&auto=format&fit=crop&q=80',
+        cover: 'https://i.scdn.co/image/ab67616d0000b273a16e7cf09e3fde98b09b2b8a',
       },
       {
         title: 'Badass (Bloody Sweet)',
         artist: 'Anirudh (Leo)',
-        cover: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=200&auto=format&fit=crop&q=80',
+        cover: 'https://i.scdn.co/image/ab67616d0000b273a16e7cf09e3fde98b09b2b8a',
       },
     ],
     favArtists: [
       {
         name: 'Anirudh Ravichander',
         badge: 'Rockstar Ani ⚡',
-        img: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&auto=format&fit=crop&q=80',
+        img: 'https://i.scdn.co/image/ab6761610000e5ebbca0c68cc6f4ff2a7ca57e18',
         spotify: 'https://open.spotify.com/artist/4zCH9qm4R2DADamUHMCcrQ',
         comment: 'God of adrenaline BGM, viral earworms, and undisputed youth anthem king',
         pinnedEmoji: '⚡',
@@ -163,7 +163,7 @@ const MUSIC_SECTIONS: LanguageSection[] = [
     flag: '🇮🇳',
     playableSong: 'Zaalima',
     playableArtist: 'Arijit Singh & Harshdeep Kaur',
-    playableCover: 'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=200&auto=format&fit=crop&q=80',
+    playableCover: 'https://i.scdn.co/image/ab67616d0000b273af6e1dfe97e28a9de8a7be78',
     audioSrc: '/assets/audio/hindi_track.mp3',
     color: '#fb7185',
     bgGlow: 'rgba(251, 113, 133, 0.18)',
@@ -171,34 +171,34 @@ const MUSIC_SECTIONS: LanguageSection[] = [
       {
         title: 'Zaalima',
         artist: 'Arijit Singh (Raees)',
-        cover: 'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=200&auto=format&fit=crop&q=80',
+        cover: 'https://i.scdn.co/image/ab67616d0000b273af6e1dfe97e28a9de8a7be78',
       },
       {
         title: 'Maula Mera',
         artist: 'Roop Kumar Rathod (Anwar)',
-        cover: 'https://images.unsplash.com/photo-1445985543470-41fdd5c31447?w=200&auto=format&fit=crop&q=80',
+        cover: 'https://i.scdn.co/image/ab67616d0000b273af6e1dfe97e28a9de8a7be78',
       },
       {
         title: 'Tum Prem Ho',
         artist: 'Mohit Lalwani (RadhaKrishn)',
-        cover: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=200&auto=format&fit=crop&q=80',
+        cover: 'https://i.scdn.co/image/ab67616d0000b273af6e1dfe97e28a9de8a7be78',
       },
       {
         title: 'Channa Mereya',
         artist: 'Arijit Singh (ADHM)',
-        cover: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=200&auto=format&fit=crop&q=80',
+        cover: 'https://i.scdn.co/image/ab67616d0000b273b1e11c97c33b6b6fbcb6a3a0',
       },
       {
         title: 'Alag Aasmaan / Mishri',
         artist: 'Anuv Jain',
-        cover: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&auto=format&fit=crop&q=80',
+        cover: 'https://i.scdn.co/image/ab67616d0000b273af6e1dfe97e28a9de8a7be78',
       },
     ],
     favArtists: [
       {
         name: 'Arijit Singh',
         badge: 'Voice of Romance ❤️',
-        img: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200&auto=format&fit=crop&q=80',
+        img: 'https://i.scdn.co/image/ab6761610000e5eb5ba97c38c4e5fa3ca5d1b00b',
         spotify: 'https://open.spotify.com/artist/4YRxDV8wJFPHPTeXepOstw',
         comment: 'Raw, heartbreaking emotion that touches the deepest corners of the soul',
         pinnedEmoji: '❤️',
@@ -206,7 +206,7 @@ const MUSIC_SECTIONS: LanguageSection[] = [
       {
         name: 'Anuv Jain',
         badge: 'Acoustic Poetry 🌙',
-        img: 'https://images.unsplash.com/photo-1445985543470-41fdd5c31447?w=200&auto=format&fit=crop&q=80',
+        img: 'https://i.scdn.co/image/ab6761610000e5ebccd614a23ab01d44a00d2e1e',
         spotify: 'https://open.spotify.com/artist/4obzFoKoKRHIphyHzJ35G3',
         comment: 'Midnight acoustic strings and quiet introspective poetry',
         pinnedEmoji: '🎸',
@@ -219,7 +219,7 @@ const MUSIC_SECTIONS: LanguageSection[] = [
     flag: '🇯🇵',
     playableSong: 'Nandemonaiya (なんでもないや)',
     playableArtist: 'RADWIMPS',
-    playableCover: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21519-11E26q31DqFm.png',
+    playableCover: 'https://i.scdn.co/image/ab67616d0000b2736f4db0855f4e1b34a21d6a35',
     audioSrc: '/assets/audio/japanese_track.mp3',
     color: '#22d3ee',
     bgGlow: 'rgba(34, 211, 238, 0.18)',
@@ -227,34 +227,34 @@ const MUSIC_SECTIONS: LanguageSection[] = [
       {
         title: 'Nandemonaiya (なんでもないや)',
         artist: 'RADWIMPS (Your Name / 君の名は)',
-        cover: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21519-11E26q31DqFm.png',
+        cover: 'https://i.scdn.co/image/ab67616d0000b2736f4db0855f4e1b34a21d6a35',
       },
       {
         title: 'Your Lie in April OST (Hikaru Nara)',
         artist: 'Goose House (四月は君の嘘)',
-        cover: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20665-TLgkL8T8IRFd.png',
+        cover: 'https://i.scdn.co/image/ab67616d0000b2737c52f7e7f3c3e31a1a8a1a7b',
       },
       {
         title: 'In the Pool',
         artist: 'Rascal Does Not Dream OST',
-        cover: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101291-y4p2uW4v1t50.jpg',
+        cover: 'https://i.scdn.co/image/ab67616d0000b2736f4db0855f4e1b34a21d6a35',
       },
       {
         title: 'Fukashigi no Carte',
         artist: 'Mai Sakurajima (Bunny Girl Senpai ED)',
-        cover: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101291-y4p2uW4v1t50.jpg',
+        cover: 'https://i.scdn.co/image/ab67616d0000b2736f4db0855f4e1b34a21d6a35',
       },
       {
         title: 'Shinunoga E-Wa',
         artist: 'Fujii Kaze (死ぬのがいいわ)',
-        cover: 'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=200&auto=format&fit=crop&q=80',
+        cover: 'https://i.scdn.co/image/ab67616d0000b273b4d92e28c5a22a5b5d0e6e40',
       },
     ],
     favArtists: [
       {
         name: 'RADWIMPS',
         badge: 'Your Name Masterminds 🌌',
-        img: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=200&auto=format&fit=crop&q=80',
+        img: 'https://i.scdn.co/image/ab6761610000e5eb6b2d53d6b0aa01b59e64c51f',
         spotify: 'https://open.spotify.com/artist/1EowJ1WwkMzkCkRomFjaTe',
         comment: 'Architects of cinematic transcendence, Makoto Shinkai skies, and unforgettable youth',
         pinnedEmoji: '🌌',
@@ -262,7 +262,7 @@ const MUSIC_SECTIONS: LanguageSection[] = [
       {
         name: 'Fujii Kaze',
         badge: 'Soulful Transcendence 🍃',
-        img: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=200&auto=format&fit=crop&q=80',
+        img: 'https://i.scdn.co/image/ab6761610000e5eb8ab47eae44a1c3c2fdbe7f91',
         spotify: 'https://open.spotify.com/artist/7zpGLOL91A54F101Z0U790',
         comment: 'Shinunoga E-Wa · transcendent soulful jazz-pop with undeniable warmth and swag',
         pinnedEmoji: '🍃',
@@ -317,8 +317,8 @@ export default function Music() {
         <TanjiroWaterDragon />
       </div>
 
-      {/* ── Yuji Scroll Down Button bottom-right ── */}
-      <ScrollDownYuji />
+      {/* ── Bocchi Scroll Down Button bottom-right ── */}
+      <BocchiScrollDown />
 
       {/* Introduction Banner */}
       <div className="mb-10 p-5 rounded-2xl bg-[#0f1412] border border-green-800/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl">
@@ -471,6 +471,7 @@ export default function Music() {
                             src={song.cover}
                             alt={song.title}
                             className="w-full h-full object-cover group-hover:scale-108 transition-transform"
+                            onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/200x200/1a1a2e/ffffff?text=🎵'; }}
                           />
                         </div>
 
@@ -505,6 +506,7 @@ export default function Music() {
                               src={artist.img}
                               alt={artist.name}
                               className="w-full h-full object-cover"
+                              onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/200x200/1a1a2e/ffffff?text=🎵'; }}
                             />
                           </div>
 
