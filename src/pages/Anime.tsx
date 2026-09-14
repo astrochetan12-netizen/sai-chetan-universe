@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '../components/Layout';
 import animeData from '../../site-data/anime.json';
 import { ChevronLeft, ChevronRight, Star, Search, Flame, Sparkles } from 'lucide-react';
+import { CidShadowThrone, ScrollDownYuji } from '../components/AnimeStickers';
 
 const TOP_FAV = 'Chainsaw Man';
 
@@ -105,6 +106,13 @@ export default function Anime() {
       themeColor="from-orange-700 to-amber-950"
       accentColor="#f97316"
     >
+      {/* ── Lord Shadow Sticker on Left Side ── */}
+      <div className="fixed left-3 sm:left-6 bottom-8 z-30 hidden lg:block">
+        <CidShadowThrone />
+      </div>
+
+      {/* ── Yuji Scroll Down Button ── */}
+      <ScrollDownYuji />
       {/* ── Featured Favorites Rotating 3D Hero Carousel ── */}
       <div className="mb-12">
         <div className="flex items-center justify-between mb-4">

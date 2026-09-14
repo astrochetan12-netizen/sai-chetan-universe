@@ -1,14 +1,6 @@
 import { motion } from 'framer-motion';
 import { MessageSquare, MoreHorizontal, ExternalLink, MapPin } from 'lucide-react';
 
-// Authentic Anime & Specialty Badges instead of random emojis
-const ANIME_BADGES = [
-  { id: 'csm', label: 'Chainsaw Man Fiend', icon: '🪚', color: 'from-orange-500/20 to-red-600/20', border: 'border-orange-500/40' },
-  { id: 'solo', label: 'Shadow Monarch', icon: '👑', color: 'from-indigo-500/20 to-purple-600/20', border: 'border-indigo-500/40' },
-  { id: 'music', label: 'Vinyl Audiophile', icon: '🎧', color: 'from-green-500/20 to-emerald-600/20', border: 'border-green-500/40' },
-  { id: 'nocturnal', label: 'Night Owl Dev', icon: '🌙', color: 'from-blue-500/20 to-cyan-600/20', border: 'border-cyan-500/40' },
-];
-
 export default function Home() {
   return (
     <div className="relative w-full">
@@ -19,12 +11,12 @@ export default function Home() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="relative w-full bg-[#111214] rounded-[24px] overflow-hidden shadow-2xl border border-[#1e1f22]"
       >
-        {/* Profile Banner (Clean, no vines covering it) */}
-        <div className="relative w-full h-[210px] overflow-hidden bg-[#1a1b1e]">
+        {/* Profile Banner: User's Denji & Reze Night Fence Manga Panel */}
+        <div className="relative w-full h-[210px] overflow-hidden bg-[#0c0d10]">
           <img
-            src="/assets/stickers/banner.jpg"
-            alt="Profile Banner"
-            className="w-full h-full object-cover object-center scale-105 hover:scale-110 transition-transform duration-700"
+            src="/assets/stickers/denji_reze_banner.png"
+            alt="Denji & Reze Night Panel"
+            className="w-full h-full object-cover object-center scale-100 hover:scale-105 transition-transform duration-700"
           />
           {/* Subtle dark gradient overlay towards the bottom */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#111214] via-transparent to-black/20" />
@@ -34,7 +26,7 @@ export default function Home() {
           {/* Avatar Row */}
           <div className="flex justify-between items-start">
             <div className="relative -mt-[68px]">
-              {/* Denji Avatar with clean border (No heavy glowing halo) */}
+              {/* Denji Avatar with crisp clean border */}
               <div className="relative w-[136px] h-[136px] rounded-full border-[6px] border-[#111214] bg-[#2b2d31] overflow-hidden z-20 shadow-xl">
                 <img
                   src="/assets/pfp/headshot.png"
@@ -43,7 +35,7 @@ export default function Home() {
                 />
               </div>
 
-              {/* Moon Status (Idle / Watching) */}
+              {/* Moon Status Indicator */}
               <div className="absolute bottom-2 right-2 z-30 bg-[#111214] rounded-full p-1 border-[4px] border-[#111214]">
                 <div className="w-6 h-6 bg-[#f0b132] rounded-full flex items-center justify-center text-[#111214]">
                   <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -52,13 +44,13 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* "loser 🖤" speech bubble */}
+              {/* Status Speech Bubble: "procrastinating 😴" */}
               <motion.div
                 animate={{ y: [-2, 2, -2] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute top-2 -right-16 z-30 bg-[#2b2d31] border border-white/10 text-white/80 text-xs px-3 py-1.5 rounded-2xl rounded-bl-none shadow-lg whitespace-nowrap select-none"
+                className="absolute top-2 -right-24 z-30 bg-[#2b2d31] border border-white/10 text-white/90 text-xs px-3 py-1.5 rounded-2xl rounded-bl-none shadow-lg whitespace-nowrap select-none font-medium"
               >
-                loser 🖤
+                procrastinating 😴
               </motion.div>
             </div>
           </div>
@@ -77,21 +69,6 @@ export default function Home() {
                 <span className="font-semibold">CSM</span>
               </div>
             </div>
-          </div>
-
-          {/* Custom Anime Badges (Instead of random emojis) */}
-          <div className="flex items-center gap-2 mt-4 flex-wrap">
-            {ANIME_BADGES.map((b) => (
-              <motion.div
-                key={b.id}
-                whileHover={{ scale: 1.08, y: -2 }}
-                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gradient-to-r ${b.color} border ${b.border} text-xs font-semibold text-white/90 cursor-default shadow-sm`}
-                title={b.label}
-              >
-                <span>{b.icon}</span>
-                <span className="text-[11px] font-mono">{b.label}</span>
-              </motion.div>
-            ))}
           </div>
 
           {/* Action Buttons */}
@@ -129,7 +106,6 @@ export default function Home() {
               ABOUT ME
             </h3>
 
-            {/* True user bio */}
             <p className="text-[14px] text-white/90 leading-relaxed font-medium">
               18 yr chud just larping my way in to fit in <span className="text-white/50">· aloneholic</span>
             </p>
@@ -140,11 +116,10 @@ export default function Home() {
               <span className="text-white/40 italic">i try to learn stuff by experimenting</span>
             </p>
 
-            {/* Location Pin with Beach Waves */}
+            {/* Native Location Pin with Animated Beach Waves */}
             <div className="mt-3.5 flex items-center gap-2 text-xs font-medium text-cyan-300 bg-cyan-950/30 border border-cyan-800/30 px-3 py-1.5 rounded-xl w-fit">
               <MapPin size={13} className="text-cyan-400 shrink-0" />
               <span>Native: <strong>Vizag</strong></span>
-              {/* Animated Beach Waves Sticker */}
               <motion.span
                 animate={{ rotate: [-4, 4, -4], y: [0, -2, 0] }}
                 transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
@@ -168,11 +143,8 @@ export default function Home() {
               className="absolute right-0 top-1 cursor-pointer select-none"
               title="HE JUST LIKE ME FR!!!!"
             >
-              {/* Tape at top */}
               <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-9 h-3 bg-white/40 rounded-sm -rotate-2 z-10 shadow-sm" />
-              <div
-                className="w-24 h-24 p-1 rounded-sm bg-white shadow-xl transform rotate-6 border border-white/20"
-              >
+              <div className="w-24 h-24 p-1 rounded-sm bg-white shadow-xl transform rotate-6 border border-white/20">
                 <img
                   src="/assets/pfp/meme-panel.png"
                   alt="He just like me fr"

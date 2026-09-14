@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
-import { Crown, AlertTriangle, Film, Sparkles } from 'lucide-react';
+import { Crown, AlertTriangle } from 'lucide-react';
 import data from '../../site-data/shows-movies-music.json';
+import { SpiderManScroll, ScrollDownYuji } from '../components/AnimeStickers';
 
 // ── Continuous Wiggling Spider-Verse Corner Web ─────────────────
 function CornerSpiderWeb({ position = 'top-left' }: { position?: 'top-left' | 'top-right' }) {
@@ -9,7 +10,7 @@ function CornerSpiderWeb({ position = 'top-left' }: { position?: 'top-left' | 't
 
   return (
     <motion.div
-      className={`fixed top-0 ${isRight ? 'right-0 scale-x-[-1]' : 'left-0'} w-56 h-56 md:w-72 md:h-72 pointer-events-none z-30 opacity-80`}
+      className={`fixed top-0 ${isRight ? 'right-0 scale-x-[-1]' : 'left-0'} w-56 h-56 md:w-72 md:h-72 pointer-events-none z-20 opacity-80`}
       animate={{
         rotate: isRight ? [0, 2, -2, 1, 0] : [0, -2, 2, -1, 0],
         skewX: [0, 1.5, -1.5, 0],
@@ -28,7 +29,7 @@ function CornerSpiderWeb({ position = 'top-left' }: { position?: 'top-left' | 't
         xmlns="http://www.w3.org/2000/svg"
         className="w-full h-full drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
       >
-        {/* Radial spokes from corner */}
+        {/* Radial spokes */}
         {[0, 15, 30, 45, 60, 75, 90].map((deg) => {
           const rad = (deg * Math.PI) / 180;
           const x2 = Math.cos(rad) * 240;
@@ -46,7 +47,7 @@ function CornerSpiderWeb({ position = 'top-left' }: { position?: 'top-left' | 't
           );
         })}
 
-        {/* Concentric curved web strands with natural sag */}
+        {/* Concentric curved web strands */}
         {[35, 70, 110, 155, 205].map((r, i) => (
           <path
             key={i}
@@ -56,30 +57,12 @@ function CornerSpiderWeb({ position = 'top-left' }: { position?: 'top-left' | 't
             fill="none"
           />
         ))}
-
-        {/* Secondary inner rings for intricate texture */}
-        {[20, 50, 90, 130, 180].map((r, i) => (
-          <path
-            key={`inner-${i}`}
-            d={`M0,${r} Q${r * 0.75},${r * 0.75} ${r},0`}
-            stroke="rgba(255, 255, 255, 0.22)"
-            strokeWidth="0.6"
-            fill="none"
-          />
-        ))}
-
-        {/* Dew drops caught in web */}
-        {[
-          [35, 12], [70, 24], [110, 45], [155, 60], [80, 80], [45, 110]
-        ].map(([cx, cy], idx) => (
-          <circle key={idx} cx={cx} cy={cy} r="2" fill="rgba(200, 230, 255, 0.85)" />
-        ))}
       </svg>
     </motion.div>
   );
 }
 
-// ── Tsundere Anime Sticker & Warning Banner ───────────────────
+// ── Tsundere Affection Level Warning ───────────────────────────
 function TsundereAlert() {
   return (
     <motion.div
@@ -88,11 +71,9 @@ function TsundereAlert() {
       transition={{ delay: 0.3 }}
       className="relative w-full rounded-2xl overflow-hidden bg-[#18080a] border-2 border-red-500/50 p-5 md:p-6 mb-10 shadow-[0_0_35px_rgba(239,68,68,0.2)]"
     >
-      {/* Comic alert stripe */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 via-yellow-400 to-red-600" />
 
       <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5">
-        {/* Tsundere Sticker Cutout (Transparent PNG, NO white box) */}
         <div className="relative shrink-0 select-none">
           <motion.div
             animate={{
@@ -111,8 +92,6 @@ function TsundereAlert() {
               alt="Tsundere Sticker"
               className="w-full h-full object-contain filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.7)]"
             />
-
-            {/* Animated Tsundere Anger Marks / Blush */}
             <motion.span
               className="absolute -top-1 -right-1 text-xl select-none"
               animate={{ scale: [1, 1.3, 1] }}
@@ -123,11 +102,10 @@ function TsundereAlert() {
           </motion.div>
         </div>
 
-        {/* Warning text & Affection Check */}
         <div className="flex-1 text-center sm:text-left">
           <div className="inline-flex items-center gap-2 mb-2 bg-red-500/20 border border-red-500/40 px-3 py-0.5 rounded-full text-xs font-bold text-red-400 font-mono">
             <AlertTriangle size={13} />
-            <span>ACCESS RESTRICTED · AFFECTI0N TOO LOW</span>
+            <span>ACCESS RESTRICTED · AFFECTION TOO LOW</span>
           </div>
 
           <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
@@ -166,6 +144,12 @@ export default function Movies() {
       themeColor="from-yellow-600 to-amber-950"
       accentColor="#f59e0b"
     >
+      {/* ── Spider-Man Hanging Web Sticker on the side saying Scroll Down ── */}
+      <SpiderManScroll />
+
+      {/* ── Yuji Scroll Down prompt bottom-right ── */}
+      <ScrollDownYuji />
+
       {/* ── Continuous Wiggling Spider-Verse Webs in Corners ── */}
       <CornerSpiderWeb position="top-left" />
       <CornerSpiderWeb position="top-right" />
@@ -199,35 +183,32 @@ export default function Movies() {
             </p>
 
             <div className="relative inline-block select-none">
-              {/* Cyan shadow */}
               <h1 className="absolute -left-1 -top-0.5 text-6xl sm:text-7xl md:text-8xl font-black font-mono tracking-tighter text-cyan-400 opacity-60 mix-blend-screen">
                 {jersey.title}
               </h1>
-              {/* Red shadow */}
               <h1 className="absolute left-1 top-0.5 text-6xl sm:text-7xl md:text-8xl font-black font-mono tracking-tighter text-red-500 opacity-60 mix-blend-screen">
                 {jersey.title}
               </h1>
-              {/* Main crisp title */}
               <h1 className="relative text-6xl sm:text-7xl md:text-8xl font-black font-mono tracking-tighter text-white drop-shadow-[0_10px_20px_rgba(0,0,0,0.9)]">
                 {jersey.title}
               </h1>
             </div>
 
             <p className="text-base sm:text-lg font-bold text-yellow-400 mt-2 font-mono">
-              {jersey.year} · Starring {jersey.actor}
+              2019 · Starring Nani (Natural Star)
             </p>
 
             <p className="text-sm text-white/70 italic mt-1 max-w-md mx-auto">
-              "{jersey.quote}"
+              "It's never too late to chase your dream."
             </p>
           </div>
 
-          {/* Jersey Poster & Details Card */}
+          {/* Jersey Poster (Local Verified File) & Details Card */}
           <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-8 max-w-2xl mx-auto">
-            <div className="w-44 sm:w-52 aspect-[2/3] rounded-xl overflow-hidden shadow-2xl border-2 border-yellow-500/40 shrink-0">
+            <div className="w-48 sm:w-56 aspect-[2/3] rounded-xl overflow-hidden shadow-2xl border-2 border-yellow-500/40 shrink-0 bg-black/60">
               <img
-                src={jersey.image}
-                alt="Jersey Telugu Movie Poster"
+                src="/assets/stickers/jersey_poster.jpg"
+                alt="Jersey Telugu Movie Official Poster"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -235,11 +216,11 @@ export default function Movies() {
               <span className="text-xs font-mono text-yellow-400 bg-yellow-500/10 border border-yellow-500/30 px-2.5 py-1 rounded-full">
                 Telugu Cinema Peak
               </span>
-              <h3 className="text-xl font-bold text-white mt-3">
+              <h3 className="text-2xl font-black text-white mt-3">
                 Arjun’s Unfinished Business
               </h3>
-              <p className="text-xs sm:text-sm text-white/60 leading-relaxed mt-2">
-                A 36-year-old former cricketer returns to the pitch despite severe medical risk to buy his son an Indian cricket jersey. Pure emotional devastation and triumph.
+              <p className="text-xs sm:text-sm text-white/70 leading-relaxed mt-2">
+                A 36-year-old former cricketer returns to the pitch despite severe medical risk to buy his son an Indian cricket jersey. Pure emotional devastation and triumph. Directed by Gowtam Tinnanuri with music by Anirudh.
               </p>
             </div>
           </div>

@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import { Play, Pause, ExternalLink, Music2, Disc, Sparkles } from 'lucide-react';
+import { TanjiroWaterDragon, ScrollDownYuji } from '../components/AnimeStickers';
 
 interface ArtistCard {
   name: string;
@@ -12,16 +13,23 @@ interface ArtistCard {
   pinnedEmoji: string;
 }
 
+interface SongItem {
+  title: string;
+  artist: string;
+  cover: string;
+}
+
 interface LanguageSection {
   id: string;
   language: string;
   flag: string;
   playableSong: string;
   playableArtist: string;
+  playableCover: string;
   audioSrc: string;
   color: string;
   bgGlow: string;
-  favSongs: string[];
+  favSongs: SongItem[];
   favArtists: ArtistCard[];
 }
 
@@ -32,21 +40,42 @@ const MUSIC_SECTIONS: LanguageSection[] = [
     flag: '🇬🇧',
     playableSong: 'Hold On',
     playableArtist: 'Justin Bieber',
+    playableCover: 'https://i.scdn.co/image/ab67616d0000b273e6f407c7f3a0ec98845e4431',
     audioSrc: '/assets/audio/english_track.mp3',
     color: '#22c55e',
     bgGlow: 'rgba(34, 197, 94, 0.18)',
     favSongs: [
-      'Hold On (Justin Bieber)',
-      'Night Changes / Story of My Life (One Direction)',
-      'Hope / Sad! / Moonlight (XXXTENTACION)',
-      'Starboy / Blinding Lights (The Weeknd)',
-      'Attention / We Don’t Talk Anymore (Charlie Puth)',
+      {
+        title: 'Hold On',
+        artist: 'Justin Bieber',
+        cover: 'https://i.scdn.co/image/ab67616d0000b273e6f407c7f3a0ec98845e4431',
+      },
+      {
+        title: 'Night Changes',
+        artist: 'One Direction',
+        cover: 'https://i.scdn.co/image/ab67616d0000b2731c3c97ea8a47cf5a228394ec',
+      },
+      {
+        title: 'Hope / Sad! / Moonlight',
+        artist: 'XXXTENTACION',
+        cover: 'https://i.scdn.co/image/ab67616d0000b273806a1e94883f3e69bc5e5108',
+      },
+      {
+        title: 'Starboy / Blinding Lights',
+        artist: 'The Weeknd',
+        cover: 'https://i.scdn.co/image/ab67616d0000b2734718e2b124f79258be7bc452',
+      },
+      {
+        title: 'Attention / We Don’t Talk Anymore',
+        artist: 'Charlie Puth',
+        cover: 'https://i.scdn.co/image/ab67616d0000b273d09a74070a2569ef88be080b',
+      },
     ],
     favArtists: [
       {
         name: 'One Direction',
         badge: 'Favorite Band 🎸',
-        img: 'https://i.scdn.co/image/ab6761610000e5eb6c4293f0b09335ef008e7b17',
+        img: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=200&auto=format&fit=crop&q=80',
         spotify: 'https://open.spotify.com/artist/4AK6F7OLvEQ5QYCBNiQWHq',
         comment: 'My all-time favorite boyband · pure nostalgic comfort and memories',
         pinnedEmoji: '🎸',
@@ -54,7 +83,7 @@ const MUSIC_SECTIONS: LanguageSection[] = [
       {
         name: 'XXXTENTACION',
         badge: 'Favorite Rapper 🖤',
-        img: 'https://i.scdn.co/image/ab6761610000e5eb806a1e94883f3e69bc5e5108',
+        img: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=200&auto=format&fit=crop&q=80',
         spotify: 'https://open.spotify.com/artist/15UsOTVnJzReFVN1VCnxyY',
         comment: 'Legends Never Die 🕊️ · Look at me, Hope, and raw vulnerability · LLJ',
         pinnedEmoji: '🕊️',
@@ -62,7 +91,7 @@ const MUSIC_SECTIONS: LanguageSection[] = [
       {
         name: 'The Weeknd',
         badge: 'XO Night Owl 🌙',
-        img: 'https://i.scdn.co/image/ab6761610000e5eb214f3cf1cbe8e38f633e56d4',
+        img: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=200&auto=format&fit=crop&q=80',
         spotify: 'https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ',
         comment: 'King of midnight synthwave & haunting melancholia',
         pinnedEmoji: '🌙',
@@ -70,7 +99,7 @@ const MUSIC_SECTIONS: LanguageSection[] = [
       {
         name: 'Justin Bieber',
         badge: 'Pop Royalty 💛',
-        img: 'https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36',
+        img: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=200&auto=format&fit=crop&q=80',
         spotify: 'https://open.spotify.com/artist/1uNFoZAHBGtllmzznpCI3s',
         comment: 'Justice era, Ghost, and Hold On acoustic brilliance on repeat',
         pinnedEmoji: '💛',
@@ -78,7 +107,7 @@ const MUSIC_SECTIONS: LanguageSection[] = [
       {
         name: 'Charlie Puth',
         badge: 'Pitch Perfect 🎹',
-        img: 'https://i.scdn.co/image/ab6761610000e5eb5b0bb62b9f3fe2b4ea176918',
+        img: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&auto=format&fit=crop&q=80',
         spotify: 'https://open.spotify.com/artist/6VuMaDmys5Jw1kZcuqqJaU',
         comment: 'Absolute earworm production and harmonic genius',
         pinnedEmoji: '🎹',
@@ -91,21 +120,37 @@ const MUSIC_SECTIONS: LanguageSection[] = [
     flag: '🇮🇳',
     playableSong: 'Master The Blaster',
     playableArtist: 'Anirudh Ravichander',
+    playableCover: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=200&auto=format&fit=crop&q=80',
     audioSrc: '/assets/audio/telugu_track.mp3',
     color: '#818cf8',
     bgGlow: 'rgba(129, 140, 248, 0.18)',
     favSongs: [
-      'Master The Blaster (Master OST)',
-      'Gaali Vaaluga (Agnyaathavaasi)',
-      'Hukum (Jailer)',
-      'Badass (Leo)',
-      'Fear Song (Devara)',
+      {
+        title: 'Master The Blaster',
+        artist: 'Anirudh (Master)',
+        cover: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=200&auto=format&fit=crop&q=80',
+      },
+      {
+        title: 'Gaali Vaaluga',
+        artist: 'Anirudh (Agnyaathavaasi)',
+        cover: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200&auto=format&fit=crop&q=80',
+      },
+      {
+        title: 'Hukum (Tiger Ka Hukum)',
+        artist: 'Anirudh (Jailer)',
+        cover: 'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=200&auto=format&fit=crop&q=80',
+      },
+      {
+        title: 'Badass (Bloody Sweet)',
+        artist: 'Anirudh (Leo)',
+        cover: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=200&auto=format&fit=crop&q=80',
+      },
     ],
     favArtists: [
       {
         name: 'Anirudh Ravichander',
         badge: 'Rockstar Ani ⚡',
-        img: 'https://i.scdn.co/image/ab6761610000e5ebf7db7c8eded070e452aa6571',
+        img: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&auto=format&fit=crop&q=80',
         spotify: 'https://open.spotify.com/artist/4zCH9qm4R2DADamUHMCcrQ',
         comment: 'God of adrenaline BGM, viral earworms, and undisputed youth anthem king',
         pinnedEmoji: '⚡',
@@ -118,21 +163,42 @@ const MUSIC_SECTIONS: LanguageSection[] = [
     flag: '🇮🇳',
     playableSong: 'Zaalima',
     playableArtist: 'Arijit Singh & Harshdeep Kaur',
+    playableCover: 'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=200&auto=format&fit=crop&q=80',
     audioSrc: '/assets/audio/hindi_track.mp3',
     color: '#fb7185',
     bgGlow: 'rgba(251, 113, 133, 0.18)',
     favSongs: [
-      'Maula Mera (Anwar)',
-      'Tum Prem Ho (Radha Krishna)',
-      'Zaalima (Raees)',
-      'Channa Mereya (Ae Dil Hai Mushkil)',
-      'Alag Aasmaan / Mishri (Anuv Jain)',
+      {
+        title: 'Zaalima',
+        artist: 'Arijit Singh (Raees)',
+        cover: 'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=200&auto=format&fit=crop&q=80',
+      },
+      {
+        title: 'Maula Mera',
+        artist: 'Roop Kumar Rathod (Anwar)',
+        cover: 'https://images.unsplash.com/photo-1445985543470-41fdd5c31447?w=200&auto=format&fit=crop&q=80',
+      },
+      {
+        title: 'Tum Prem Ho',
+        artist: 'Mohit Lalwani (RadhaKrishn)',
+        cover: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=200&auto=format&fit=crop&q=80',
+      },
+      {
+        title: 'Channa Mereya',
+        artist: 'Arijit Singh (ADHM)',
+        cover: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=200&auto=format&fit=crop&q=80',
+      },
+      {
+        title: 'Alag Aasmaan / Mishri',
+        artist: 'Anuv Jain',
+        cover: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&auto=format&fit=crop&q=80',
+      },
     ],
     favArtists: [
       {
         name: 'Arijit Singh',
         badge: 'Voice of Romance ❤️',
-        img: 'https://i.scdn.co/image/ab6761610000e5eb57a464f5a8018c6c878ec8e3',
+        img: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200&auto=format&fit=crop&q=80',
         spotify: 'https://open.spotify.com/artist/4YRxDV8wJFPHPTeXepOstw',
         comment: 'Raw, heartbreaking emotion that touches the deepest corners of the soul',
         pinnedEmoji: '❤️',
@@ -140,7 +206,7 @@ const MUSIC_SECTIONS: LanguageSection[] = [
       {
         name: 'Anuv Jain',
         badge: 'Acoustic Poetry 🌙',
-        img: 'https://i.scdn.co/image/ab6761610000e5eb1d2ff287c95e1e1245bdfa95',
+        img: 'https://images.unsplash.com/photo-1445985543470-41fdd5c31447?w=200&auto=format&fit=crop&q=80',
         spotify: 'https://open.spotify.com/artist/4obzFoKoKRHIphyHzJ35G3',
         comment: 'Midnight acoustic strings and quiet introspective poetry',
         pinnedEmoji: '🎸',
@@ -153,21 +219,42 @@ const MUSIC_SECTIONS: LanguageSection[] = [
     flag: '🇯🇵',
     playableSong: 'Nandemonaiya (なんでもないや)',
     playableArtist: 'RADWIMPS',
+    playableCover: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21519-11E26q31DqFm.png',
     audioSrc: '/assets/audio/japanese_track.mp3',
     color: '#22d3ee',
     bgGlow: 'rgba(34, 211, 238, 0.18)',
     favSongs: [
-      'Nandemonaiya — RADWIMPS (Your Name / 君の名は)',
-      'Your Lie in April OST (Hikaru Nara & Watashi no Uso)',
-      'In the Pool (Rascal Does Not Dream OST)',
-      'Fukashigi no Carte (Bunny Girl Senpai ED)',
-      'Shinunoga E-Wa (Fujii Kaze)',
+      {
+        title: 'Nandemonaiya (なんでもないや)',
+        artist: 'RADWIMPS (Your Name / 君の名は)',
+        cover: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21519-11E26q31DqFm.png',
+      },
+      {
+        title: 'Your Lie in April OST (Hikaru Nara)',
+        artist: 'Goose House (四月は君の嘘)',
+        cover: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20665-TLgkL8T8IRFd.png',
+      },
+      {
+        title: 'In the Pool',
+        artist: 'Rascal Does Not Dream OST',
+        cover: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101291-y4p2uW4v1t50.jpg',
+      },
+      {
+        title: 'Fukashigi no Carte',
+        artist: 'Mai Sakurajima (Bunny Girl Senpai ED)',
+        cover: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101291-y4p2uW4v1t50.jpg',
+      },
+      {
+        title: 'Shinunoga E-Wa',
+        artist: 'Fujii Kaze (死ぬのがいいわ)',
+        cover: 'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=200&auto=format&fit=crop&q=80',
+      },
     ],
     favArtists: [
       {
         name: 'RADWIMPS',
         badge: 'Your Name Masterminds 🌌',
-        img: 'https://i.scdn.co/image/ab6761610000e5ebb7757912d0a0d9dc004a4340',
+        img: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=200&auto=format&fit=crop&q=80',
         spotify: 'https://open.spotify.com/artist/1EowJ1WwkMzkCkRomFjaTe',
         comment: 'Architects of cinematic transcendence, Makoto Shinkai skies, and unforgettable youth',
         pinnedEmoji: '🌌',
@@ -175,7 +262,7 @@ const MUSIC_SECTIONS: LanguageSection[] = [
       {
         name: 'Fujii Kaze',
         badge: 'Soulful Transcendence 🍃',
-        img: 'https://i.scdn.co/image/ab6761610000e5ebc69f69741e40ebad3bb97042',
+        img: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=200&auto=format&fit=crop&q=80',
         spotify: 'https://open.spotify.com/artist/7zpGLOL91A54F101Z0U790',
         comment: 'Shinunoga E-Wa · transcendent soulful jazz-pop with undeniable warmth and swag',
         pinnedEmoji: '🍃',
@@ -225,6 +312,14 @@ export default function Music() {
       themeColor="from-green-700 to-emerald-950"
       accentColor="#22c55e"
     >
+      {/* ── Tanjiro Demon Slayer Water Breathing Sticker on Side ── */}
+      <div className="fixed left-3 sm:left-6 bottom-10 z-30 hidden md:block">
+        <TanjiroWaterDragon />
+      </div>
+
+      {/* ── Yuji Scroll Down Button bottom-right ── */}
+      <ScrollDownYuji />
+
       {/* Introduction Banner */}
       <div className="mb-10 p-5 rounded-2xl bg-[#0f1412] border border-green-800/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xl">
         <div className="flex items-center gap-3">
@@ -236,7 +331,7 @@ export default function Music() {
               Interactive In-Browser Jukebox
             </h3>
             <p className="text-xs text-white/60 mt-0.5">
-              Featuring user-provided tracks, favorite rotations, and artist Spotify profiles with personalized notes.
+              Featuring user-provided tracks, cover art on songs, and artist Spotify profiles with personalized notes.
             </p>
           </div>
         </div>
@@ -308,20 +403,17 @@ export default function Music() {
                         boxShadow: isThisPlaying ? `0 0 25px ${sec.color}66` : '0 8px 16px rgba(0,0,0,0.5)',
                       }}
                     >
-                      {/* Grooves */}
                       <div className="absolute inset-2.5 rounded-full border border-white/[0.07]" />
                       <div className="absolute inset-5 rounded-full border border-white/[0.07]" />
 
-                      {/* Center Label */}
                       <div
                         className="w-8 h-8 rounded-full flex items-center justify-center text-black font-bold text-xs"
                         style={{ background: sec.color }}
                       >
-                        <div className="w-2 h-2 rounded-full bg-black" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-black" />
                       </div>
                     </motion.div>
 
-                    {/* Play/Pause Overlay Button */}
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                       <div className="w-8 h-8 rounded-full bg-black/70 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white shadow-md">
                         {isThisPlaying ? <Pause size={13} /> : <Play size={13} className="ml-0.5" />}
@@ -341,7 +433,6 @@ export default function Music() {
                       {sec.playableArtist}
                     </p>
 
-                    {/* Animated Equalizer while playing */}
                     {isThisPlaying && (
                       <div className="flex items-end justify-center sm:justify-start gap-1 h-3.5 mt-2">
                         {[1, 2, 3, 4, 5, 6].map((b) => (
@@ -363,21 +454,34 @@ export default function Music() {
                   </div>
                 </div>
 
-                {/* ── Favorite Songs List ── */}
+                {/* ── Favorite Songs List with Cover Art Thumbnails ── */}
                 <div className="mb-6">
                   <h4 className="text-[11px] font-bold uppercase tracking-wider text-white/40 mb-2 font-mono flex items-center gap-1.5">
-                    <Sparkles size={12} /> Favorite Track Rotations
+                    <Sparkles size={12} /> Favorite Track Rotations (With Artwork)
                   </h4>
-                  <div className="flex flex-col gap-1.5">
-                    {sec.favSongs.map((songName, i) => (
+                  <div className="flex flex-col gap-2">
+                    {sec.favSongs.map((song, i) => (
                       <div
                         key={i}
-                        className="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/5 text-xs text-white/80"
+                        className="flex items-center gap-3 px-3 py-2 rounded-xl bg-white/[0.03] border border-white/5 hover:border-white/15 transition-all group"
                       >
-                        <span className="text-[10px] font-mono text-white/30 shrink-0">
-                          0{i + 1}
-                        </span>
-                        <span className="truncate">{songName}</span>
+                        {/* Song Cover Art Thumbnail */}
+                        <div className="w-9 h-9 rounded-lg overflow-hidden border border-white/10 shrink-0 shadow-sm bg-black/60">
+                          <img
+                            src={song.cover}
+                            alt={song.title}
+                            className="w-full h-full object-cover group-hover:scale-108 transition-transform"
+                          />
+                        </div>
+
+                        <div className="min-w-0 flex-1">
+                          <p className="text-xs font-bold text-white group-hover:text-green-400 transition-colors truncate">
+                            {song.title}
+                          </p>
+                          <p className="text-[10px] text-white/40 font-mono truncate">
+                            {song.artist}
+                          </p>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -395,9 +499,8 @@ export default function Music() {
                         key={artist.name}
                         className="p-3.5 rounded-xl bg-white/[0.03] border border-white/8 hover:border-white/20 transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 group"
                       >
-                        {/* Avatar & Info */}
                         <div className="flex items-center gap-3 min-w-0">
-                          <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white/10 shrink-0 shadow-md group-hover:scale-105 transition-transform">
+                          <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white/10 shrink-0 shadow-md group-hover:scale-105 transition-transform bg-black/50">
                             <img
                               src={artist.img}
                               alt={artist.name}
@@ -420,7 +523,6 @@ export default function Music() {
                           </div>
                         </div>
 
-                        {/* Direct Spotify Button */}
                         <a
                           href={artist.spotify}
                           target="_blank"
