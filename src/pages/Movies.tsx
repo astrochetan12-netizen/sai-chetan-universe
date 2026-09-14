@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import { Crown, AlertTriangle } from 'lucide-react';
+import data from '../../site-data/shows-movies-music.json';
 import { SpiderManScroll } from '../components/AnimeStickers';
 
 // ── Continuous Wiggling Spider-Verse Corner Web ─────────────────

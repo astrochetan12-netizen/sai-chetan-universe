@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '../components/Layout';
 import animeData from '../../site-data/anime.json';
+import { ChevronLeft, ChevronRight, Star, Search, Flame, Sparkles } from 'lucide-react';
 import { CidShadowThrone } from '../components/AnimeStickers';
 
 const TOP_FAV = 'Chainsaw Man';
