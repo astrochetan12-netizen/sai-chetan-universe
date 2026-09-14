@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 
 // ── 1. Bocchi the Rock "Scroll Down" Sticker (Music page) ──────
@@ -237,8 +238,8 @@ const LEFT_STICKERS: StickerDef[] = [
     top: '22%',
     delay: 0,
     content: (
-      <div className="text-center group cursor-pointer pointer-events-auto">
-        <div className="w-16 sm:w-20 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)] hover:scale-110 transition-transform">
+      <div className="text-center group select-none pointer-events-none">
+        <div className="w-16 sm:w-20 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)]">
           <img
             src="/assets/stickers/gojo_blindfold_clean.png"
             alt="Gojo Satoru"
@@ -254,11 +255,11 @@ const LEFT_STICKERS: StickerDef[] = [
   {
     id: 'anya-left',
     side: 'left',
-    top: '46%',
+    top: '58%',
     delay: 1.2,
     content: (
-      <div className="text-center group cursor-pointer pointer-events-auto">
-        <div className="w-16 sm:w-20 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)] hover:scale-110 transition-transform">
+      <div className="text-center group select-none pointer-events-none">
+        <div className="w-16 sm:w-20 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)]">
           <img
             src="/assets/stickers/anya_smug_clean.png"
             alt="Anya Heh"
@@ -267,26 +268,6 @@ const LEFT_STICKERS: StickerDef[] = [
         </div>
         <div className="text-[9px] font-black text-pink-300 font-mono mt-1 bg-black/80 px-2 py-0.5 rounded-full border border-pink-500/30 shadow-md">
           Anya heh 😏
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: 'eren-left',
-    side: 'left',
-    top: '70%',
-    delay: 2.1,
-    content: (
-      <div className="text-center group cursor-pointer pointer-events-auto">
-        <div className="w-16 sm:w-20 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)] hover:scale-110 transition-transform">
-          <img
-            src="/assets/stickers/eren_tatakae_clean.png"
-            alt="Eren Tatakae"
-            className="w-full h-auto object-contain"
-          />
-        </div>
-        <div className="text-[9px] font-black text-green-300 font-mono mt-1 bg-black/80 px-2 py-0.5 rounded-full border border-green-500/30 shadow-md">
-          TATAKAE! ⚔️
         </div>
       </div>
     ),
@@ -300,8 +281,8 @@ const RIGHT_STICKERS: StickerDef[] = [
     top: '25%',
     delay: 0.5,
     content: (
-      <div className="text-center group cursor-pointer pointer-events-auto">
-        <div className="w-16 sm:w-20 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)] hover:scale-110 transition-transform">
+      <div className="text-center group select-none pointer-events-none">
+        <div className="w-16 sm:w-20 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)]">
           <img
             src="/assets/stickers/saitama_shrug_clean.png"
             alt="Saitama Shrug"
@@ -317,11 +298,11 @@ const RIGHT_STICKERS: StickerDef[] = [
   {
     id: 'rem-right',
     side: 'right',
-    top: '50%',
+    top: '60%',
     delay: 1.8,
     content: (
-      <div className="text-center group cursor-pointer pointer-events-auto">
-        <div className="w-16 sm:w-20 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)] hover:scale-110 transition-transform">
+      <div className="text-center group select-none pointer-events-none">
+        <div className="w-16 sm:w-20 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)]">
           <img
             src="/assets/stickers/rem_emilia_clean.png"
             alt="Rem"
@@ -334,36 +315,23 @@ const RIGHT_STICKERS: StickerDef[] = [
       </div>
     ),
   },
-  {
-    id: 'subaru-right',
-    side: 'right',
-    top: '72%',
-    delay: 0.9,
-    content: (
-      <div className="text-center group cursor-pointer pointer-events-auto">
-        <div className="w-20 sm:w-24 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.9)] hover:scale-105 transition-transform">
-          <img
-            src="/assets/stickers/subaru_schedule_clean.png"
-            alt="Subaru Daily Schedule"
-            className="w-full h-auto object-contain"
-          />
-        </div>
-        <div className="text-[9px] font-black text-red-300 font-mono mt-1 bg-black/80 px-2 py-0.5 rounded-full border border-red-500/30 shadow-md">
-          Subaru 💀 09:00 DIE
-        </div>
-      </div>
-    ),
-  },
 ];
 
 export function GlobalSideStickers() {
+  const location = useLocation();
+
+  // STRICT REQUIREMENT: Absolutely NO stickers on homepage! Homepage is purely devotional & serene.
+  if (location.pathname === '/') {
+    return null;
+  }
+
   return (
     <>
-      {/* Left side stickers */}
+      {/* Left side stickers (wide margins only, zero overlap) */}
       {LEFT_STICKERS.map((sticker) => (
         <motion.div
           key={sticker.id}
-          className="fixed left-2 sm:left-4 z-20 pointer-events-none select-none hidden xl:flex flex-col items-center"
+          className="fixed left-3 sm:left-6 z-20 pointer-events-none select-none hidden 2xl:flex flex-col items-center"
           style={{ top: sticker.top }}
           animate={{ y: [0, -10, 0] }}
           transition={{
@@ -377,11 +345,11 @@ export function GlobalSideStickers() {
         </motion.div>
       ))}
 
-      {/* Right side stickers */}
+      {/* Right side stickers (wide margins only, zero overlap) */}
       {RIGHT_STICKERS.map((sticker) => (
         <motion.div
           key={sticker.id}
-          className="fixed right-2 sm:right-4 z-20 pointer-events-none select-none hidden xl:flex flex-col items-center"
+          className="fixed right-3 sm:right-6 z-20 pointer-events-none select-none hidden 2xl:flex flex-col items-center"
           style={{ top: sticker.top }}
           animate={{ y: [0, -10, 0] }}
           transition={{

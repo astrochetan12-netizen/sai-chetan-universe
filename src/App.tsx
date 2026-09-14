@@ -11,7 +11,8 @@ import FloatingClouds from './components/FloatingClouds';
 import Home from './components/Home';
 import WidgetBoard from './components/WidgetBoard';
 import Socials from './components/Socials';
-import { ScrollDownYuji, GlobalSideStickers } from './components/AnimeStickers';
+import { GlobalSideStickers } from './components/AnimeStickers';
+import BottomMotionClouds from './components/BottomMotionClouds';
 
 import Anime from './pages/Anime';
 import Manhwa from './pages/Manhwa';
@@ -44,8 +45,18 @@ const Hub = () => (
     {/* ── 5. Soft Atmospheric Floating Clouds ── */}
     <FloatingClouds />
 
-    {/* ── 6. Yuji Itadori "Scroll Down" Interactive Side Guide ── */}
-    <ScrollDownYuji />
+    {/* ── 6. Devotional Peak Dark Aesthetic Vrindavan / Yamuna Riverbank Horizon at Bottom ── */}
+    <div className="absolute bottom-0 inset-x-0 h-[460px] pointer-events-none z-0 overflow-hidden select-none">
+      <img
+        src="/assets/backgrounds/devotional_dark_bg_faded.png"
+        alt="Divine Midnight Riverbank"
+        className="w-full h-full object-cover object-bottom opacity-40 mix-blend-screen"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#070b09] via-transparent to-[#070b09]/85 pointer-events-none" />
+    </div>
+
+    {/* ── 7. Tiny Drifting Motion Clouds along Bottom ── */}
+    <BottomMotionClouds />
 
     {/* Main Content Hub Grid */}
     <div className="relative z-10 max-w-[1400px] mx-auto min-h-screen flex flex-col lg:flex-row items-start justify-center gap-10 p-4 lg:p-12 pt-32 md:pt-36">

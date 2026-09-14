@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MessageSquare, MoreHorizontal, ExternalLink, MapPin } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -71,34 +71,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex items-center gap-3 mt-5">
-            <a
-              href="https://discord.com/users/wintersummon"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold py-2.5 rounded-lg flex items-center justify-center gap-2 transition-all text-sm shadow-md hover:shadow-indigo-500/20"
-            >
-              <MessageSquare size={16} /> Add on Discord
-            </a>
-            <a
-              href="https://github.com/astrochetan12-netizen"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 bg-[#2b2d31] hover:bg-[#383a40] rounded-lg flex items-center justify-center text-white/70 hover:text-white transition-colors"
-              title="GitHub Profile"
-            >
-              <ExternalLink size={16} />
-            </a>
-            <button
-              className="w-10 h-10 bg-[#2b2d31] hover:bg-[#383a40] rounded-lg flex items-center justify-center text-white/70 hover:text-white transition-colors"
-              title="More"
-            >
-              <MoreHorizontal size={16} />
-            </button>
-          </div>
-
-          <div className="w-full h-px bg-white/5 my-5" />
+          <div className="w-full h-px bg-white/5 my-4" />
 
           {/* Bio Section with Polaroid Meme & Beach Waves */}
           <div className="relative pr-24 sm:pr-28">
@@ -152,6 +125,22 @@ export default function Home() {
                 />
               </div>
             </motion.div>
+          </div>
+
+          {/* ── Attached Krishna Celestial Swing Video at Bottom of Profile ── */}
+          <div className="mt-6 -mx-6 -mb-7 rounded-b-[24px] overflow-hidden border-t border-emerald-500/20 bg-[#060a08] relative group">
+            <div className="absolute top-3 left-3 z-10 flex items-center gap-2 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-mono font-bold text-amber-300 border border-amber-400/30 shadow-lg select-none">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Divine Celestial Swing</span>
+            </div>
+            <video
+              src="/assets/krishna-swing.webm"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-auto object-cover max-h-[360px]"
+            />
           </div>
         </div>
       </motion.div>

@@ -1,19 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
-import { JoJoMenacingSticker, SaitamaRegimenCard, ScrollDownYuji } from '../components/AnimeStickers';
+import { JoJoMenacingSticker, SaitamaRegimenCard } from '../components/AnimeStickers';
 
 export default function WIP({ section }: { section: 'writing' | 'gym' }) {
   if (section === 'gym') {
     return (
       <Layout
-        title="Gym"
+        title="Gym & Gains"
         subtitle="Pushing plates and watching anime"
         themeColor="from-slate-700 to-zinc-950"
         accentColor="#f59e0b"
       >
-        <ScrollDownYuji />
-
         <div className="flex flex-col items-center justify-center min-h-[55vh] gap-8 text-center py-12 max-w-3xl mx-auto">
           {/* Animated emoji */}
           <motion.div

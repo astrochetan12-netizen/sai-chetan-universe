@@ -5,7 +5,7 @@
       "season_note": "Season 1 · 8 Episodes (2022)",
       "genre": "Action · Psychological Drama · High School",
       "description": "Yeon Si-eun is a model student who uses his wits, psychology, and surroundings to fight against the school bullies. Ruthless, gritty, and absolute peak storytelling.",
-      "image": "https://m.media-amazon.com/images/M/MV5BMGUyNzg4MWUtODc0Mi00NGNkLTgyNDctNjdhZTZjMjRiMTdhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      "image": "/assets/shows/weak_hero.jpg",
       "backdrop": "https://images.justwatch.com/backdrop/301740925/s1440/weak-hero-class-1"
     },
     "k_dramas_and_series": [
@@ -13,79 +13,79 @@
         "title": "Stranger Things",
         "category": "Netflix Original · Sci-Fi / Mystery",
         "tag": "Must Watch",
-        "image": "https://m.media-amazon.com/images/M/MV5BMjE2Nzg5NDUzMV5BMl5BanBnXkFtZTgwNTMxNjAwNzE@._V1_.jpg"
+        "image": "/assets/shows/stranger_things.jpg"
       },
       {
         "title": "Squid Game",
         "category": "K-Drama · Survival Thriller",
         "tag": "Season 1 & 2",
-        "image": "https://m.media-amazon.com/images/M/MV5BYWE3MDVkN2EtNjQ5MS00ZDQ4LTliNzYtMjc2YWMzMDEwMTA3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+        "image": "/assets/shows/squid_game.jpg"
       },
       {
         "title": "Alice in Borderland",
         "category": "Survival Game · Psychological",
         "tag": "Masterpiece",
-        "image": "https://m.media-amazon.com/images/M/MV5BYzA0M2Y5ZGItYjhmZC00NGUzLTkxMzAtODMwODhkZmQyNWFkXkEyXkFqcGc@._V1_.jpg"
+        "image": "/assets/shows/alice_in_borderland.jpg"
       },
       {
         "title": "When Life Gives You Tangerines",
         "category": "K-Drama · Romance / Slice of Life (IU)",
         "tag": "Anticipated Peak",
-        "image": "https://upload.wikimedia.org/wikipedia/en/thumb/9/91/When_Life_Gives_You_Tangerines.jpg/220px-When_Life_Gives_You_Tangerines.jpg"
+        "image": "/assets/shows/tangerines.jpg"
       },
       {
         "title": "My Girlfriend is an Alien",
         "category": "Rom-Com · Fantasy / Sci-Fi",
         "tag": "Chai Xiaoqi",
-        "image": "https://m.media-amazon.com/images/M/MV5BZWMyMzZhZjItZGU5MC00MTRiLWEwMWYtYjBhM2ZlMTJjN2VkXkEyXkFqcGc@._V1_.jpg"
+        "image": "/assets/shows/alien_girlfriend.jpg"
       },
       {
         "title": "All of Us Are Dead",
         "category": "K-Drama · Zombie Apocalypse / High School",
         "tag": "Intense Thriller",
-        "image": "https://m.media-amazon.com/images/M/MV5BNTI2YTY0ZjItOTU5NC00NmNiLWI5NjgtMWU5NjQ2MzEwYjBhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+        "image": "/assets/shows/all_of_us_are_dead.jpg"
       },
       {
         "title": "Bloodhounds",
         "category": "K-Drama · Boxing / Crime Action",
         "tag": "Peak Action",
-        "image": "https://m.media-amazon.com/images/M/MV5BMjYxYmUxODktMzk1MC00YzFmLWJmYjQtYjhlZTQ5M2MxMjE0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+        "image": "/assets/shows/bloodhounds.jpg"
       },
       {
         "title": "Sweet Home",
         "category": "K-Drama · Apocalyptic Horror",
         "tag": "Monster Evolution",
-        "image": "https://m.media-amazon.com/images/M/MV5BYzJkYzg3NWUtY2RlMy00ZGRjLWIzNDktNzAyZTgyNmRhOGZlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+        "image": "/assets/shows/sweet_home.jpg"
       },
       {
         "title": "Vincenzo",
         "category": "K-Drama · Mafia Comedy / Legal Thriller",
         "tag": "Corn Salad Mafia",
-        "image": "https://m.media-amazon.com/images/M/MV5BYzA4ZjEzZjgtY2FjZi00YmNmLTkzYTctZTUwMDcwNTNlNDBiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+        "image": "/assets/shows/vincenzo.jpg"
       },
       {
         "title": "Moving",
         "category": "K-Drama · Superpowers / Family Action",
         "tag": "God Tier",
-        "image": "https://m.media-amazon.com/images/M/MV5BMmFiMzg4NzAtNjQ3OC00ZTZhLWI2NDUtZTVjMzVjNzcwMGI2XkEyXkFqcGc@._V1_.jpg"
+        "image": "/assets/shows/moving.jpg"
       },
       {
         "title": "Twinkling Watermelon",
         "category": "K-Drama · Time Travel / Youth Music",
         "tag": "Wholesome Feels",
-        "image": "https://m.media-amazon.com/images/M/MV5BYjI3NGUwYmMtOGFjOC00NTc4LTkxYjQtZmFlNTZiNDBhYTA0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+        "image": "/assets/shows/twinkling_watermelon.jpg"
       },
       {
         "title": "Duty After School",
         "category": "K-Drama · Alien Invasion / High School",
         "tag": "Military Fiction",
-        "image": "https://m.media-amazon.com/images/M/MV5BOGQ1MjkxYjAtOGJhMy00MmU0LTk0MzAtYjY1NWU3NDEyMzgxXkEyXkFqcGc@._V1_.jpg"
+        "image": "/assets/shows/duty_after_school.jpg"
       },
       {
         "title": "Extracurricular",
         "category": "K-Drama · Dark Crime / High School",
         "tag": "Gritty Reality",
-        "image": "https://m.media-amazon.com/images/M/MV5BZjJlMjc2MzQtZGE4My00NWMyLTg2NjctNmUxZmJjMTUyM2QzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+        "image": "/assets/shows/extracurricular.jpg"
       }
     ]
   },
@@ -96,7 +96,7 @@
       "actor": "Nani",
       "note": "Telugu Masterpiece · Gowtam Tinnanuri",
       "quote": "It's never too late to chase your dream.",
-      "image": "https://m.media-amazon.com/images/M/MV5BZGQ0ODQxN2QtZmY0ZS00ZmY0LWE0MTgtMmVlOGY1NGJmMDQ3XkEyXkFqcGc@._V1_.jpg"
+      "image": "/assets/movies/jersey_poster.jpg"
     }
   },
   "music": {
@@ -107,11 +107,17 @@
         "flag": "🇬🇧",
         "top_song": "Hold On",
         "top_artist": "Justin Bieber",
-        "artist_img": "https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36",
+        "artist_img": "/assets/music/artists/justin_bieber.jpg",
         "audio_src": "/assets/audio/english_track.mp3",
         "color": "#22c55e",
         "bg_glow": "rgba(34, 197, 94, 0.15)",
-        "artists": ["One Direction 🎸", "XXXTENTACION 🖤", "The Weeknd 🌙", "Justin Bieber 💛", "Charlie Puth 🎹"]
+        "artists": [
+          "One Direction 🎸",
+          "XXXTENTACION 🖤",
+          "The Weeknd 🌙",
+          "Justin Bieber 💛",
+          "Charlie Puth 🎹"
+        ]
       },
       {
         "id": "telugu",
@@ -119,11 +125,16 @@
         "flag": "🇮🇳",
         "top_song": "Master The Blaster / Gaali Vaaluga",
         "top_artist": "Anirudh Ravichander",
-        "artist_img": "https://i.scdn.co/image/ab6761610000e5ebf7db7c8eded070e452aa6571",
+        "artist_img": "/assets/music/artists/anirudh.jpg",
         "audio_src": "/assets/audio/telugu_track.mp3",
         "color": "#818cf8",
         "bg_glow": "rgba(129, 140, 248, 0.15)",
-        "artists": ["Anirudh Ravichander ⚡", "Devi Sri Prasad 🎵", "Sid Sriram 🌊", "Thaman S 🥁"]
+        "artists": [
+          "Anirudh Ravichander ⚡",
+          "Devi Sri Prasad 🎵",
+          "Sid Sriram 🌊",
+          "Thaman S 🥁"
+        ]
       },
       {
         "id": "hindi",
@@ -131,11 +142,16 @@
         "flag": "🇮🇳",
         "top_song": "Maula Mera / Zaalima",
         "top_artist": "Arijit Singh",
-        "artist_img": "https://i.scdn.co/image/ab6761610000e5eb57a464f5a8018c6c878ec8e3",
+        "artist_img": "/assets/music/artists/arijit_singh.jpg",
         "audio_src": "/assets/audio/hindi_track.mp3",
         "color": "#fb7185",
         "bg_glow": "rgba(251, 113, 133, 0.15)",
-        "artists": ["Arijit Singh ❤️", "Anuv Jain 🌙", "Atif Aslam 🎙️", "Pritam 🎶"]
+        "artists": [
+          "Arijit Singh ❤️",
+          "Anuv Jain 🌙",
+          "Atif Aslam 🎙️",
+          "Pritam 🎶"
+        ]
       },
       {
         "id": "japanese",
@@ -143,11 +159,16 @@
         "flag": "🇯🇵",
         "top_song": "Your Lie in April OST (Hikaru Nara)",
         "top_artist": "Goose House / Kaori Miyazono",
-        "artist_img": "https://cdn.myanimelist.net/images/anime/3/67177.jpg",
+        "artist_img": "/assets/music/artists/radwimps.jpg",
         "audio_src": "/assets/audio/japanese_track.mp3",
         "color": "#22d3ee",
         "bg_glow": "rgba(34, 211, 238, 0.15)",
-        "artists": ["Goose House 🌸", "Eve 🌌", "LiSA ⚡", "Yoasobi 🌙"]
+        "artists": [
+          "Goose House 🌸",
+          "Eve 🌌",
+          "LiSA ⚡",
+          "Yoasobi 🌙"
+        ]
       }
     ],
     "spotify_profile": "https://open.spotify.com/user/7b9xyt1jj2hsdqqb27g3yyeka"

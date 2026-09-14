@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '../components/Layout';
 import manhwaData from '../../site-data/manhwa.json';
 import { Search, ChevronLeft, ChevronRight, Crown, Sparkles, BookOpen } from 'lucide-react';
-import { ScrollDownYuji } from '../components/AnimeStickers';
 
 interface ManhwaDetail {
   title: string;
@@ -102,7 +101,6 @@ export default function Manhwa() {
       themeColor="from-indigo-800 to-blue-950"
       accentColor="#6366f1"
     >
-      <ScrollDownYuji />
       {/* ── Top Featured Slider with Real Cover Poster ── */}
       <div className="mb-10">
         <div className="flex items-center justify-between mb-4">

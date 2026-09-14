@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import { Play, Info, Sparkles, Film } from 'lucide-react';
 import data from '../../site-data/shows-movies-music.json';
-import { ScrollDownYuji } from '../components/AnimeStickers';
 
 export default function Shows() {
   const { shows } = data;
@@ -16,7 +15,6 @@ export default function Shows() {
       themeColor="from-red-800 to-zinc-950"
       accentColor="#ef4444"
     >
-      <ScrollDownYuji />
       {/* ── Netflix Cinematic Hero Banner: Weak Hero Class 1 ── */}
       <motion.div
         initial={{ opacity: 0, scale: 0.98 }}

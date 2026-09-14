@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import type { ReactNode } from 'react';
+import BottomMotionClouds from './BottomMotionClouds';
 
 interface LayoutProps {
   children: ReactNode;
@@ -9,18 +10,20 @@ interface LayoutProps {
   subtitle?: string;
   themeColor?: string;
   accentColor?: string;
-  sectionStickers?: string[]; // emoji floaters for each section
 }
 
-// Per-section floating emoji stickers
-const SECTION_STICKERS: Record<string, string[]> = {
-  'Anime':       ['⚔️', '🔥', '🌸', '⛩️'],
-  'Manhwas & Manga': ['📖', '👑', '🌙', '💫'],
-  'Shows':       ['📺', '🎬', '🍿', '🎭'],
-  'Movies':      ['🕷️', '🎬', '🎞️', '🏆'],
-  'Music Vibes': ['🎵', '🎧', '🎼', '🎹'],
-  'Career':      ['💼', '🚀', '⌨️', '🏆'],
-  'Photography': ['📷', '🌅', '✨', '🎞️'],
+// Clean section header mascots (sitting cleanly in the top banner, no screen overlays)
+const SECTION_MASCOTS: Record<string, { img: string; name: string }> = {
+  'Anime':           { img: '/assets/stickers/gojo_blindfold_clean.png', name: 'Gojo Satoru' },
+  'Manhwas & Manga': { img: '/assets/stickers/eren_tatakae_clean.png', name: 'Eren Yeager' },
+  'Shows':           { img: '/assets/stickers/cid_shadow.png', name: 'Lord Shadow' },
+  'Shows & K-Dramas':{ img: '/assets/stickers/cid_shadow.png', name: 'Lord Shadow' },
+  'Movies':          { img: '/assets/stickers/spiderman_scroll.png', name: 'Spider-Man' },
+  'Music Vibes':     { img: '/assets/stickers/bocchi_clean.png', name: 'Bocchi' },
+  'Career':          { img: '/assets/stickers/anya_smug_clean.png', name: 'Anya' },
+  'Photography':     { img: '/assets/stickers/osaka_clean.png', name: 'Osaka' },
+  'Gym & Gains':     { img: '/assets/stickers/saitama_shrug_clean.png', name: 'Saitama' },
+  'Writing & Lore':  { img: '/assets/stickers/tsundere.png', name: 'Tsundere' },
 };
 
 export default function Layout({
@@ -30,7 +33,7 @@ export default function Layout({
   themeColor = 'from-indigo-600 to-indigo-900',
   accentColor = '#5865f2',
 }: LayoutProps) {
-  const stickers = SECTION_STICKERS[title] ?? [];
+  const mascot = SECTION_MASCOTS[title];
 
   return (
     <motion.div
@@ -68,18 +71,27 @@ export default function Layout({
           style={{ background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)`, opacity: 0.7 }}
         />
 
-        {/* Floating section stickers */}
-        {stickers.map((emoji, i) => (
+        {/* Header Mascot Sticker sitting cleanly at top right of banner */}
+        {mascot && (
           <motion.div
-            key={i}
-            className="absolute text-3xl pointer-events-none select-none"
-            style={{ right: `${8 + i * 8}%`, top: `${15 + (i % 2) * 30}%`, opacity: 0.25 }}
-            animate={{ y: [0, -10, 0], rotate: [-5, 5, -5] }}
-            transition={{ duration: 4 + i, repeat: Infinity, ease: 'easeInOut', delay: i * 0.6 }}
+            initial={{ opacity: 0, scale: 0.85, y: 15 }}
+            animate={{ opacity: 0.95, scale: 1, y: [0, -6, 0] }}
+            transition={{
+              opacity: { duration: 0.6 },
+              scale: { duration: 0.6 },
+              y: { duration: 3.5, repeat: Infinity, ease: 'easeInOut' }
+            }}
+            className="absolute right-6 sm:right-12 bottom-2 z-20 pointer-events-none select-none hidden sm:block"
           >
-            {emoji}
+            <div className="w-24 sm:w-28 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.85)]">
+              <img
+                src={mascot.img}
+                alt={mascot.name}
+                className="w-full h-auto object-contain max-h-28 sm:max-h-32"
+              />
+            </div>
           </motion.div>
-        ))}
+        )}
 
         <div className="relative z-20 max-w-6xl mx-auto px-6 pt-6 pb-10 flex flex-col gap-3">
           <Link
@@ -124,6 +136,18 @@ export default function Layout({
       >
         {children}
       </motion.div>
+
+      {/* ── Anime Silhouette Background Watermark at Bottom (aniKoto aesthetic) ── */}
+      <div className="absolute bottom-0 right-0 pointer-events-none z-0 overflow-hidden select-none opacity-25">
+        <img
+          src="/assets/backgrounds/anime_bottom_watermark.png"
+          alt="Anime Silhouette"
+          className="w-[340px] sm:w-[480px] md:w-[620px] h-auto object-contain object-bottom-right"
+        />
+      </div>
+
+      {/* ── Tiny Drifting Motion Clouds along Bottom ── */}
+      <BottomMotionClouds />
     </motion.div>
   );
 }

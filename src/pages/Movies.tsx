@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import { Crown, AlertTriangle } from 'lucide-react';
-import data from '../../site-data/shows-movies-music.json';
-import { SpiderManScroll, ScrollDownYuji } from '../components/AnimeStickers';
+import { SpiderManScroll } from '../components/AnimeStickers';
 
 // ── Continuous Wiggling Spider-Verse Corner Web ─────────────────
 function CornerSpiderWeb({ position = 'top-left' }: { position?: 'top-left' | 'top-right' }) {
@@ -146,9 +145,6 @@ export default function Movies() {
     >
       {/* ── Spider-Man Hanging Web Sticker on the side saying Scroll Down ── */}
       <SpiderManScroll />
-
-      {/* ── Yuji Scroll Down prompt bottom-right ── */}
-      <ScrollDownYuji />
 
       {/* ── Continuous Wiggling Spider-Verse Webs in Corners ── */}
       <CornerSpiderWeb position="top-left" />
