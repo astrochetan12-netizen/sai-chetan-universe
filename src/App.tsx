@@ -11,7 +11,7 @@ import FloatingClouds from './components/FloatingClouds';
 import Home from './components/Home';
 import WidgetBoard from './components/WidgetBoard';
 import Socials from './components/Socials';
-import { ScrollDownYuji } from './components/AnimeStickers';
+import { ScrollDownYuji, GlobalSideStickers } from './components/AnimeStickers';
 
 import Anime from './pages/Anime';
 import Manhwa from './pages/Manhwa';
@@ -87,6 +87,7 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
+      <GlobalSideStickers />
       <AnimatedRoutes />
     </BrowserRouter>
   );
