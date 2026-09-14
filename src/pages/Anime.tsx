@@ -2,11 +2,11 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '../components/Layout';
 import animeData from '../../site-data/anime.json';
-import { ChevronLeft, ChevronRight, Star, Search, Flame, Play, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star, Search, Flame, Sparkles } from 'lucide-react';
 
 const TOP_FAV = 'Chainsaw Man';
 
-// Verified, high-resolution anime posters
+// Verified, high-resolution anime posters from AniList and MAL CDN
 const TOP_PICK_DETAILS: Record<string, { img: string; genre: string; desc: string }> = {
   'Chainsaw Man': {
     img: 'https://cdn.myanimelist.net/images/anime/1806/126216.jpg',
@@ -14,54 +14,54 @@ const TOP_PICK_DETAILS: Record<string, { img: string; genre: string; desc: strin
     desc: 'Denji’s chaotic, raw struggle for a normal life. Absolute #1 favorite, lives rent-free in my head forever.'
   },
   'The Eminence in Shadow': {
-    img: 'https://cdn.myanimelist.net/images/anime/1647/117271.jpg',
+    img: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx130298-YMdcKHytpWNH.jpg',
     genre: 'Action · Comedy · Fantasy / Isekai',
     desc: 'Cid Kagenou roleplaying as a mastermind while accidentally saving the world. Pure unadulterated peak comedy.'
   },
   'Naruto': {
-    img: 'https://cdn.myanimelist.net/images/anime/13/17405.jpg',
+    img: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20-dE6UHbFFg1A5.jpg',
     genre: 'Shounen · Martial Arts · Adventure',
     desc: 'The classic foundation. Unforgettable villain arcs, emotion, and philosophical clashes.'
   },
   'Your Lie in April': {
-    img: 'https://cdn.myanimelist.net/images/anime/3/67177.jpg',
+    img: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20665-TLgkL8T8IRFd.png',
     genre: 'Drama · Music · Romance',
-    desc: 'A heartbreaking masterpiece about grief, music, and finding the color in life again.'
+    desc: 'A heartbreaking masterpiece about grief, music, and finding the color in life again. Kaori Miyazono forever.'
+  },
+  'Murai in Love': {
+    img: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx150930-1GEK1mYfVNca.jpg',
+    genre: 'Romance · Comedy · Otome Geek',
+    desc: 'Murai confesses to his teacher Tanaka, who rejects him because she only loves otome game characters. Murai transforms himself into her 2D idol.'
   },
   'Darling in the Franxx': {
-    img: 'https://cdn.myanimelist.net/images/anime/1614/90408.jpg',
+    img: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx99423-8MBxtwCeHf8B.png',
     genre: 'Mecha · Romance · Sci-Fi',
-    desc: 'Zero Two & Hiro. Unforgettable emotional attachment and mech designs.'
+    desc: 'Zero Two & Hiro. Unforgettable emotional attachment, iconic character dynamics, and mech combat.'
   },
   'My Dress-Up Darling': {
-    img: 'https://cdn.myanimelist.net/images/anime/1329/120123.jpg',
+    img: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx132405-qP7FQYGmNI3d.jpg',
     genre: 'Romance · Slice of Life · Cosplay',
-    desc: 'Marin Kitagawa’s energetic passion for cosplay bringing Wakana Gojo out of his shell.'
+    desc: 'Marin Kitagawa’s radiant passion for cosplay bringing Wakana Gojo out of his shell. Pure wholesome chemistry.'
   },
   'The Dangers in My Heart': {
-    img: 'https://cdn.myanimelist.net/images/anime/1476/134474.jpg',
+    img: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx153152-Xnwmx7wuoIWV.jpg',
     genre: 'Rom-Com · School · Youth',
-    desc: 'Top-tier wholesome character development. One of the best romance anime ever made.'
+    desc: 'Top-tier wholesome character development. Ichikawa & Yamada’s subtle romantic progression is unmatched.'
   },
   'ReLIFE': {
-    img: 'https://cdn.myanimelist.net/images/anime/3/80389.jpg',
+    img: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21049-4AHSLeiDE9eg.png',
     genre: 'Drama · Romance · Second Chances',
-    desc: 'Reliving high school as an adult to fix your life. Deeply relatable and cathartic.'
+    desc: 'Reliving high school as an adult to fix your life. Deeply relatable, funny, and profoundly cathartic.'
+  },
+  'Welcome to the NHK': {
+    img: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1210-2XotjcgqdcaX.jpg',
+    genre: 'Psychological · Drama · Hikikomori',
+    desc: 'Tatsuhiro Satou battling social isolation, anxiety, and his own conspiratorial delusions. Genuine emotional depth.'
   },
   'Vinland Saga': {
-    img: 'https://cdn.myanimelist.net/images/anime/1500/103005.jpg',
+    img: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101348-2fhDFPCuMNiz.jpg',
     genre: 'Historical · Action · Philosophical',
-    desc: 'From revenge to redemption. Thorfinn’s journey of true strength having no enemies.'
-  },
-  'Haikyu!!': {
-    img: 'https://cdn.myanimelist.net/images/anime/7/76014.jpg',
-    genre: 'Sports · Volleyball · Adrenaline',
-    desc: 'Hype incarnate. Every spike, block, and rally gets the heart pumping.'
-  },
-  'Solo Leveling': {
-    img: 'https://cdn.myanimelist.net/images/anime/1247/138881.jpg',
-    genre: 'Action · Fantasy · Leveling',
-    desc: 'Sung Jin-woo awakening from the weakest hunter into the god-tier Shadow Monarch.'
+    desc: 'From revenge to redemption. Thorfinn’s journey of true strength having no enemies. Modern animated classic.'
   },
 };
 
@@ -111,7 +111,7 @@ export default function Anime() {
           <div className="flex items-center gap-2">
             <Sparkles size={18} className="text-orange-400" />
             <h2 className="text-lg font-black text-white font-mono uppercase tracking-wider">
-              Hall of Fame · Top Rotations
+              Top Favorites Carousel ({topPicksList.length})
             </h2>
           </div>
           <span className="text-xs text-white/40 font-mono">
@@ -120,7 +120,7 @@ export default function Anime() {
         </div>
 
         <div
-          className="relative w-full min-h-[380px] md:min-h-[440px] rounded-2xl overflow-hidden border border-orange-500/20 bg-[#121316] shadow-2xl select-none"
+          className="relative w-full min-h-[390px] md:min-h-[450px] rounded-2xl overflow-hidden border border-orange-500/20 bg-[#121316] shadow-2xl select-none"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
@@ -141,7 +141,7 @@ export default function Anime() {
                   </span>
                   {currentAnime === TOP_FAV && (
                     <span className="flex items-center gap-1 bg-red-600/30 border border-red-500/50 text-red-400 text-xs px-2.5 py-0.5 rounded font-bold font-mono">
-                      <Flame size={12} /> #1 ALL-TIME
+                      <Flame size={12} /> #1 ALL-TIME FAVORITE
                     </span>
                   )}
                 </div>
@@ -162,7 +162,7 @@ export default function Anime() {
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={16} className="fill-current" />
                   ))}
-                  <span className="text-xs text-white/40 ml-2 font-mono">Masterpiece Rating</span>
+                  <span className="text-xs text-white/40 ml-2 font-mono">Masterpiece</span>
                 </div>
               </div>
 
@@ -180,7 +180,7 @@ export default function Anime() {
 
               {/* Blurred Background Artwork */}
               <div
-                className="absolute inset-0 bg-cover bg-center opacity-20 filter blur-xl scale-110 pointer-events-none -z-10"
+                className="absolute inset-0 bg-cover bg-center opacity-25 filter blur-xl scale-110 pointer-events-none -z-10"
                 style={{ backgroundImage: `url(${currentDetail.img})` }}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-[#121316] via-[#121316]/80 to-transparent -z-10" />

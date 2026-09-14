@@ -6,6 +6,7 @@ import { Search, ChevronLeft, ChevronRight, Crown, Sparkles, BookOpen } from 'lu
 
 interface ManhwaDetail {
   title: string;
+  shortTitle: string;
   img: string;
   author: string;
   genre: string;
@@ -13,46 +14,61 @@ interface ManhwaDetail {
   desc: string;
 }
 
+// Exactly ordered according to user's favorites from site-data/manhwa.json
 const TOP_MANHWAS: ManhwaDetail[] = [
   {
-    title: 'Solo Leveling',
-    img: 'https://cdn.myanimelist.net/images/manga/3/222295.jpg',
-    author: 'Chugong & DUBU (REDICE Studio)',
-    genre: 'Action · Fantasy · Dungeons',
-    status: 'Completed (God Tier)',
-    desc: 'Sung Jin-woo begins as the world’s weakest E-rank hunter. After surviving a double dungeon, he receives a mysterious quest log that turns him into the unstoppable Shadow Monarch. "Arise."'
-  },
-  {
-    title: 'Omniscient Reader’s Viewpoint',
-    img: 'https://cdn.myanimelist.net/images/manga/1/234617.jpg',
-    author: 'sing N song & Sleepy-C',
-    genre: 'Apocalypse · Psychological · Meta-Fiction',
-    status: 'Ongoing Masterpiece',
-    desc: 'Kim Dokja was the sole reader of a web novel with 3,149 chapters. When the fictional world becomes real, Dokja uses his knowledge to guide humanity through the terrifying scenarios.'
-  },
-  {
-    title: 'The Beginning After The End',
-    img: 'https://cdn.myanimelist.net/images/manga/2/205579.jpg',
+    title: 'The Beginning After The End (TBATE)',
+    shortTitle: 'TBATE',
+    img: 'https://media.kitsu.app/manga/54597/poster_image/large-d5f120451631e8e2334a7629f994dd03.jpeg',
     author: 'TurtleMe & Fuyuki23',
-    genre: 'Reincarnation · Magic · Adventure',
-    status: 'Ongoing Peak',
-    desc: 'King Grey is reincarnated into the magical world of Dicathen as Arthur Leywin. Armed with the memories of his past life, he strives to protect his loved ones from looming continental war.'
+    genre: 'Isekai · Magic · Continental War · Adventure',
+    status: '#1 All-Time Favorite',
+    desc: 'King Grey was a solitary ruler who died mysteriously. Reborn as Arthur Leywin in the magical world of Dicathen, he vows to protect his family and kingdom from ancient Asuran warfare. Peak worldbuilding.'
   },
   {
-    title: 'Tower of God',
-    img: 'https://cdn.myanimelist.net/images/manga/2/177591.jpg',
-    author: 'SIU',
-    genre: 'High Fantasy · Mystery · Epic Scale',
-    status: 'Ongoing Legend',
-    desc: 'Twenty-Fifth Baam enters the unfathomable Tower to chase after Rachel, his only friend. Vast lore, intricate test games, and high-stakes irregular politics.'
+    title: 'SSS-Class Revival Hunter',
+    shortTitle: 'SSS Revival Hunter',
+    img: 'https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx128067-wnLBg6Cy1ncs.jpg',
+    author: 'Shin Noah & Bill K',
+    genre: 'Tower Climber · Psychological · Returner',
+    status: '#2 God Tier',
+    desc: 'Kim Gong-ja obtains the S-rank skill to copy an ability from whoever kills him, combined with an automatic 24-hour regression upon death. One of the most emotionally profound tower stories ever written.'
   },
   {
-    title: 'Lookism',
-    img: 'https://cdn.myanimelist.net/images/manga/1/215881.jpg',
-    author: 'Park Tae-joon (PTJ Comics)',
-    genre: 'School Gangs · Drama · Action',
-    status: 'Ongoing Cult Classic',
-    desc: 'Daniel Park awakens with the ability to switch between two bodies: his original overweight body and a tall, charismatic, peak-physical athlete. Deep dive into underground crews and street fights.'
+    title: 'Omniscient Reader’s Viewpoint (ORV)',
+    shortTitle: 'ORV',
+    img: 'https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx119257-Pi21aq3ey9GG.jpg',
+    author: 'sing N song & Sleepy-C (REDICE)',
+    genre: 'Apocalyptic Fantasy · Constellations · Meta',
+    status: '#3 God Tier',
+    desc: 'Kim Dokja was the sole reader who completed all 3,149 chapters of "Ways of Survival." When the world ends and follows the novel’s script, only Dokja knows how to reach the final epilogue.'
+  },
+  {
+    title: 'The Greatest Estate Developer',
+    shortTitle: 'Estate Developer',
+    img: 'https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx140407-fJQr0fmqq1IO.png',
+    author: 'BK_Moon & Kim Hyunsoo',
+    genre: 'Comedy · Civil Engineering · Fantasy',
+    status: '#4 Absolute Peak Comedy',
+    desc: 'Civil engineering student Suho Kim wakes up as Lloyd Frontera, the useless noble scoundrel of a debt-ridden barony. Using modern construction, shovels, and demonic face expressions to build an empire.'
+  },
+  {
+    title: 'Chainsaw Man Manga',
+    shortTitle: 'Chainsaw Man',
+    img: 'https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx105778-euxXZEIfDY2u.png',
+    author: 'Tatsuki Fujimoto',
+    genre: 'Dark Fantasy · Psychological · Gore',
+    status: '#5 Masterpiece Manga',
+    desc: 'Tatsuki Fujimoto’s unhinged, cinematic manga masterpiece. Denji, Pochita, Makima, and the brutal reality of human desires. Unmatched panel composition and raw storytelling.'
+  },
+  {
+    title: 'Solo Leveling',
+    shortTitle: 'Solo Leveling',
+    img: 'https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx105398-b673Vt5ZSuz3.jpg',
+    author: 'Chugong & DUBU',
+    genre: 'Action · Fantasy · Shadow Monarch',
+    status: 'Hall of Fame',
+    desc: 'Sung Jin-woo rises from the weakest E-rank hunter to the immortal Shadow Monarch commanding an army of darkness. "Arise."'
   },
 ];
 
@@ -70,7 +86,7 @@ export default function Manhwa() {
 
   useEffect(() => {
     if (paused) return;
-    const t = setInterval(next, 4000);
+    const t = setInterval(next, 4500);
     return () => clearInterval(t);
   }, [paused, next]);
 
@@ -81,17 +97,17 @@ export default function Manhwa() {
   return (
     <Layout
       title="Manhwas & Webtoons"
-      subtitle="웹툰 · God Tier Shelf"
+      subtitle="웹툰 · Verified Reading Shelf"
       themeColor="from-indigo-800 to-blue-950"
       accentColor="#6366f1"
     >
-      {/* ── Top Featured Slider with Cover Poster ── */}
+      {/* ── Top Featured Slider with Real Cover Poster ── */}
       <div className="mb-10">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <Sparkles size={18} className="text-indigo-400" />
             <h2 className="text-lg font-black text-white font-mono uppercase tracking-wider">
-              Top 5 God-Tier Picks
+              Top Favorites (Exact Order)
             </h2>
           </div>
           <span className="text-xs text-white/40 font-mono">
@@ -100,7 +116,7 @@ export default function Manhwa() {
         </div>
 
         <div
-          className="relative w-full min-h-[380px] md:min-h-[440px] rounded-2xl overflow-hidden border border-indigo-500/20 bg-[#101115] shadow-2xl select-none"
+          className="relative w-full min-h-[390px] md:min-h-[450px] rounded-2xl overflow-hidden border border-indigo-500/20 bg-[#101115] shadow-2xl select-none"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
@@ -120,27 +136,27 @@ export default function Manhwa() {
                     {slide === 0 ? <Crown size={14} className="text-amber-300" /> : null}
                     <span>RANK #{slide + 1}</span>
                   </div>
-                  <span className="text-xs text-indigo-400/80 font-mono">
+                  <span className="text-xs text-indigo-400 font-mono font-semibold">
                     {currentManhwa.status}
                   </span>
                 </div>
 
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-1 drop-shadow-lg">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight mb-1 drop-shadow-lg">
                   {currentManhwa.title}
                 </h1>
 
-                <p className="text-xs text-white/50 mb-3 font-mono">
+                <p className="text-xs sm:text-sm text-indigo-300/80 mb-3 font-mono">
                   {currentManhwa.author} • {currentManhwa.genre}
                 </p>
 
-                <p className="text-sm text-white/70 leading-relaxed max-w-lg mb-6">
+                <p className="text-sm text-white/75 leading-relaxed max-w-lg mb-6">
                   {currentManhwa.desc}
                 </p>
               </div>
 
-              {/* Right Manhwa Poster */}
+              {/* Right Manhwa HD Poster */}
               <div className="relative z-10 w-full md:w-2/5 h-64 md:h-full flex items-center justify-center p-6">
-                <div className="relative w-48 sm:w-56 aspect-[2/3] rounded-xl overflow-hidden shadow-[0_20px_35px_rgba(0,0,0,0.8)] border border-white/10 group">
+                <div className="relative w-48 sm:w-56 aspect-[2/3] rounded-xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.85)] border border-white/10 group">
                   <img
                     src={currentManhwa.img}
                     alt={currentManhwa.title}
@@ -150,7 +166,7 @@ export default function Manhwa() {
                 </div>
               </div>
 
-              {/* Background Art Backdrop */}
+              {/* Blurred Background Art */}
               <div
                 className="absolute inset-0 bg-cover bg-center opacity-25 filter blur-xl scale-110 pointer-events-none -z-10"
                 style={{ backgroundImage: `url(${currentManhwa.img})` }}
@@ -177,8 +193,8 @@ export default function Manhwa() {
         </div>
       </div>
 
-      {/* ── 5 Clickable Rank Cards with Cover Posters ── */}
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3.5 mb-14">
+      {/* ── Clickable Rank Cards with Real Cover Posters in Exact Order ── */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3.5 mb-14">
         {TOP_MANHWAS.map((item, idx) => (
           <motion.button
             key={item.title}
@@ -204,13 +220,13 @@ export default function Manhwa() {
               <span>#{idx + 1}</span>
             </div>
 
-            {/* Title at bottom */}
+            {/* Short Title at bottom */}
             <div className="absolute bottom-2 left-2 right-2">
               <p className="text-xs font-bold text-white leading-tight line-clamp-1">
-                {item.title}
+                {item.shortTitle}
               </p>
               <p className="text-[10px] text-indigo-300 font-mono mt-0.5 truncate">
-                {item.genre.split('·')[0]}
+                {item.status.split(' ')[0]}
               </p>
             </div>
           </motion.button>
