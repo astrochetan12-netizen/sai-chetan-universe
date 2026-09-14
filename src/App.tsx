@@ -1,4 +1,6 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import './index.css';
 import './animations.css';
 import FloatingClouds from './components/FloatingClouds';
 import Home from './components/Home';
@@ -17,7 +19,6 @@ import WIP from './pages/WIP';
 const Hub = () => (
   <div className="min-h-screen w-full relative bg-[#0b0c10] text-white overflow-hidden">
     <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.15] pointer-events-none mix-blend-overlay z-0" />
-    {/* Clouds on home page */}
     <FloatingClouds />
     <div className="relative z-10 max-w-[1400px] mx-auto min-h-screen flex flex-col lg:flex-row items-start justify-center gap-12 p-4 lg:p-12 pt-20">
       <div className="w-full lg:w-[460px] shrink-0">
@@ -31,10 +32,12 @@ const Hub = () => (
   </div>
 );
 
-function App() {
+// Wrap routes in AnimatePresence for page transitions
+function AnimatedRoutes() {
+  const location = useLocation();
   return (
-    <BrowserRouter>
-      <Routes>
+    <AnimatePresence mode="wait" initial={false}>
+      <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Hub />} />
         <Route path="/anime" element={<Anime />} />
         <Route path="/manhwas" element={<Manhwa />} />
@@ -46,6 +49,14 @@ function App() {
         <Route path="/gym" element={<WIP section="gym" />} />
         <Route path="/career" element={<Career />} />
       </Routes>
+    </AnimatePresence>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AnimatedRoutes />
     </BrowserRouter>
   );
 }

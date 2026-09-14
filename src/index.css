@@ -12,35 +12,86 @@
 
 * { box-sizing: border-box; }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background: var(--dark-base);
   color: #fff;
   font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* ── Custom Krishna cursor — small, 16×16 hotspot so it's not annoying ── */
+/* ── Text selection colour ───────────────────────────────── */
+::selection {
+  background: rgba(88, 101, 242, 0.35);
+  color: #fff;
+}
+
+/* ── Custom Krishna cursor — small hotspot ───────────────── */
 @media (pointer: fine) {
   * {
     cursor: url('/assets/stickers/krishna-swing.jpg') 8 8, auto !important;
   }
 }
 
-/* ── Styled scrollbar ──────────────────────────────────────── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0b0c10; }
-::-webkit-scrollbar-thumb { background: #2b2d31; border-radius: 4px; }
+/* ── Styled scrollbar ───────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2b2d31; border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: #5865f2; }
 
-/* ── Retro/mono font utility ───────────────────────────────── */
-.font-retro { font-family: 'Courier New', Courier, monospace; }
+/* ── Retro font utility ──────────────────────────────────── */
+.font-retro { font-family: 'Press Start 2P', 'Courier New', monospace; }
 
-/* ── Halftone overlay (Movies section) ────────────────────── */
+/* ── Halftone overlay ────────────────────────────────────── */
 .halftone {
   background-image: radial-gradient(circle, #000 1px, transparent 1.5px);
   background-size: 5px 5px;
+}
+
+/* ── Glass shimmer sweep ─────────────────────────────────── */
+@keyframes glass-glint {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.glass-glint::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.07) 50%, transparent 60%);
+  background-size: 200% 100%;
+  animation: glass-glint 3.5s linear infinite;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ── Horizontal scroll – hide bar ───────────────────────── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Apple-style focus ring ──────────────────────────────── */
+:focus-visible {
+  outline: 2px solid rgba(88, 101, 242, 0.8);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ── Smooth image loading ────────────────────────────────── */
+img {
+  transition: opacity 0.3s ease;
+}
+img[loading="lazy"] {
+  opacity: 0;
+}
+img[loading="lazy"].loaded,
+img:not([loading]) {
+  opacity: 1;
 }
