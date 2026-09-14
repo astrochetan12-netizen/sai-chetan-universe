@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import data from '../../site-data/shows-movies-music.json';
 
@@ -21,7 +21,8 @@ const Vinyl = ({ color }: { color: string }) => (
 const SpotifyEmbed = ({ trackId }: { trackId: string }) => (
   <iframe
     src={`https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0`}
-    width="100%" height="80" frameBorder="0"
+    width="100%" height="80"
+    style={{ border: 'none' }}
     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
     loading="lazy" className="rounded-xl mt-3"
   />
