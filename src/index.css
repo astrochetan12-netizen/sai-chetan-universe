@@ -35,10 +35,10 @@ body {
   color: #fff;
 }
 
-/* ── Custom Krishna cursor — small hotspot ───────────────── */
+/* ── Custom Krishna Flute Cursor (32x32 transparent PNG) ── */
 @media (pointer: fine) {
-  * {
-    cursor: url('/assets/stickers/krishna-swing.jpg') 8 8, auto !important;
+  *, *:hover {
+    cursor: url('/assets/stickers/flute-cursor.png') 2 2, auto !important;
   }
 }
 

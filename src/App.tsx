@@ -2,6 +2,10 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import './index.css';
 import './animations.css';
+
+import RoofCanopy from './components/RoofCanopy';
+import KrishnaSwing from './components/KrishnaSwing';
+import WindLeaves from './components/WindLeaves';
 import FloatingClouds from './components/FloatingClouds';
 import Home from './components/Home';
 import WidgetBoard from './components/WidgetBoard';
@@ -17,14 +21,31 @@ import Photography from './pages/Photography';
 import WIP from './pages/WIP';
 
 const Hub = () => (
-  <div className="min-h-screen w-full relative bg-[#0b0c10] text-white overflow-hidden">
-    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.15] pointer-events-none mix-blend-overlay z-0" />
+  <div className="min-h-screen w-full relative bg-[#0b0c10] text-white overflow-hidden selection:bg-indigo-500/30 selection:text-white">
+    {/* Ambient noise texture */}
+    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.12] pointer-events-none mix-blend-overlay z-0" />
+
+    {/* ── 1. Hanging Vine Roof Canopy across the webpage ceiling ── */}
+    <RoofCanopy />
+
+    {/* ── 2. Little Krishna 3D pendulum swing in top-right corner ── */}
+    <KrishnaSwing />
+
+    {/* ── 3. Falling Glowing Leaves (3-4 organic shapes drifting in wind) ── */}
+    <WindLeaves />
+
+    {/* ── 4. Floating atmospheric clouds ── */}
     <FloatingClouds />
-    <div className="relative z-10 max-w-[1400px] mx-auto min-h-screen flex flex-col lg:flex-row items-start justify-center gap-12 p-4 lg:p-12 pt-20">
+
+    {/* Main Content Hub */}
+    <div className="relative z-10 max-w-[1400px] mx-auto min-h-screen flex flex-col lg:flex-row items-start justify-center gap-10 p-4 lg:p-12 pt-28 md:pt-32">
+      {/* Profile Card */}
       <div className="w-full lg:w-[460px] shrink-0">
         <Home />
       </div>
-      <div className="w-full lg:flex-1 max-w-2xl flex flex-col gap-8 mt-8 lg:mt-0">
+
+      {/* Widgets & Socials Column */}
+      <div className="w-full lg:flex-1 max-w-2xl flex flex-col gap-8">
         <WidgetBoard />
         <Socials />
       </div>
@@ -32,7 +53,7 @@ const Hub = () => (
   </div>
 );
 
-// Wrap routes in AnimatePresence for page transitions
+// Smooth Page Transitions
 function AnimatedRoutes() {
   const location = useLocation();
   return (
@@ -53,12 +74,10 @@ function AnimatedRoutes() {
   );
 }
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <AnimatedRoutes />
     </BrowserRouter>
   );
 }
-
-export default App;
