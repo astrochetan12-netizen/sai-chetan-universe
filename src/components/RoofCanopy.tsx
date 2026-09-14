@@ -1,175 +1,170 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 
-export default function RoofCanopy() {
+function LeftCornerVines() {
   return (
-    <div className="fixed top-0 left-0 w-full pointer-events-none z-30 overflow-visible select-none">
-      {/* ── Deep Forest Ambient Canopy Vignette ── */}
-      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-[#040e07] via-[#091f11]/60 to-transparent" />
-
-      {/* ── Realistic Thick Vine Canopy SVG ── */}
-      <svg
-        className="w-full h-36 sm:h-44 md:h-52 overflow-visible"
-        viewBox="0 0 1440 180"
-        preserveAspectRatio="none"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+    <div className="absolute top-0 left-0 pointer-events-none select-none" style={{ width: 260, height: 160, zIndex: 30 }}>
+      <svg width="260" height="160" viewBox="0 0 260 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="overflow-visible">
         <defs>
-          {/* Ancient gnarled wood gradient */}
-          <linearGradient id="mainBranchGrad" x1="0" y1="0" x2="1440" y2="60" gradientUnits="userSpaceOnUse">
+          <linearGradient id="trunkL" x1="0" y1="0" x2="130" y2="60" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stopColor="#08170c" />
-            <stop offset="25%" stopColor="#14331c" />
-            <stop offset="50%" stopColor="#0d2414" />
-            <stop offset="75%" stopColor="#183d22" />
-            <stop offset="100%" stopColor="#091b0f" />
+            <stop offset="50%" stopColor="#14331c" />
+            <stop offset="100%" stopColor="#0d2414" />
           </linearGradient>
-
-          {/* Secondary lush vine gradient */}
-          <linearGradient id="vineSecondaryGrad" x1="0" y1="0" x2="0" y2="120" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#1b4727" />
-            <stop offset="50%" stopColor="#245e33" />
-            <stop offset="100%" stopColor="#2e7d44" />
-          </linearGradient>
-
-          {/* Leaf gradient with sunlight highlight */}
-          <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
+          <linearGradient id="leafGL" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="#48bb78" />
-            <stop offset="50%" stopColor="#2f855a" />
             <stop offset="100%" stopColor="#1c4527" />
-          </linearGradient>
-
-          {/* Wisteria flower gradient */}
-          <linearGradient id="wisteriaGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#f472b6" />
-            <stop offset="50%" stopColor="#c084fc" />
-            <stop offset="100%" stopColor="#818cf8" />
           </linearGradient>
         </defs>
 
-        {/* ── Main Ancient Thick Trunk Canopy ── */}
-        <motion.path
-          d="M0,-10 C160,35 320,15 500,42 C680,68 860,20 1060,48 C1240,75 1380,25 1440,30 L1440,-20 L0,-20 Z"
-          fill="url(#mainBranchGrad)"
-          opacity="0.95"
-          animate={{
-            d: [
-              "M0,-10 C160,35 320,15 500,42 C680,68 860,20 1060,48 C1240,75 1380,25 1440,30 L1440,-20 L0,-20 Z",
-              "M0,-10 C160,25 320,28 500,32 C680,55 860,32 1060,38 C1240,60 1380,35 1440,22 L1440,-20 L0,-20 Z",
-              "M0,-10 C160,35 320,15 500,42 C680,68 860,20 1060,48 C1240,75 1380,25 1440,30 L1440,-20 L0,-20 Z",
-            ]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
+        {/* Main thick gnarled branch going right from top-left */}
+        <path d="M-10,10 C30,8 70,20 120,30 C160,38 200,28 240,20" stroke="url(#trunkL)" strokeWidth="22" strokeLinecap="round" fill="none" />
+        <path d="M-10,10 C30,8 70,20 120,30 C160,38 200,28 240,20" stroke="#1a4a24" strokeWidth="18" strokeLinecap="round" fill="none" />
+        {/* Bark texture line */}
+        <path d="M10,14 C50,12 90,22 130,32" stroke="#2d6a3f" strokeWidth="3" strokeLinecap="round" fill="none" opacity="0.4" />
 
-        {/* ── Intertwining Thick Vines ── */}
-        <motion.path
-          d="M0,5 Q220,70 440,35 T880,65 T1320,40 T1440,25"
-          stroke="url(#vineSecondaryGrad)"
-          strokeWidth="9"
-          strokeLinecap="round"
-          fill="none"
-          animate={{ y: [0, 4, 0] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        />
+        {/* Branch going down-left */}
+        <path d="M60,22 C55,55 40,90 30,130" stroke="url(#trunkL)" strokeWidth="14" strokeLinecap="round" fill="none" />
+        <path d="M60,22 C55,55 40,90 30,130" stroke="#1a4a24" strokeWidth="10" strokeLinecap="round" fill="none" />
 
-        <motion.path
-          d="M0,0 Q180,85 360,50 T760,80 T1180,55 T1440,35"
-          stroke="#194023"
-          strokeWidth="6"
-          strokeLinecap="round"
-          fill="none"
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-        />
+        {/* Secondary thinner hanging vine */}
+        <path d="M140,28 Q135,65 125,110" stroke="#1b4727" strokeWidth="5" strokeLinecap="round" fill="none" />
+        <path d="M200,22 Q195,55 185,90" stroke="#1b4727" strokeWidth="4" strokeLinecap="round" fill="none" />
 
-        <motion.path
-          d="M0,15 Q260,95 560,60 T1040,85 T1440,45"
-          stroke="#276738"
-          strokeWidth="4"
-          strokeLinecap="round"
-          fill="none"
-          animate={{ y: [0, 7, 0] }}
-          transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
-        />
+        {/* Thick foliage clusters */}
+        {/* Cluster 1 - top left */}
+        <ellipse cx="20" cy="8" rx="28" ry="18" fill="#14532d" opacity="0.95" />
+        <ellipse cx="45" cy="5" rx="22" ry="14" fill="#166534" opacity="0.9" />
+        <ellipse cx="10" cy="15" rx="18" ry="12" fill="#15803d" opacity="0.85" />
 
-        {/* ── Dangling Realistic Vine Tendrils with Leaves & Wisteria Blossoms ── */}
-        {[
-          { x: 80,   h: 110, swing: 16, d: 5.8, delay: 0.1 },
-          { x: 190,  h: 145, swing: 18, d: 6.6, delay: 0.9 },
-          { x: 310,  h: 95,  swing: 14, d: 5.2, delay: 1.4 },
-          { x: 440,  h: 160, swing: 22, d: 7.4, delay: 0.3 },
-          { x: 570,  h: 120, swing: 15, d: 6.1, delay: 1.7 },
-          { x: 700,  h: 175, swing: 24, d: 7.8, delay: 0.5 },
-          { x: 830,  h: 115, swing: 16, d: 5.9, delay: 1.1 },
-          { x: 960,  h: 150, swing: 20, d: 7.0, delay: 0.8 },
-          { x: 1090, h: 105, swing: 15, d: 5.5, delay: 1.3 },
-          { x: 1220, h: 140, swing: 19, d: 6.7, delay: 0.4 },
-          { x: 1350, h: 115, swing: 16, d: 6.2, delay: 1.0 },
-        ].map((v, i) => (
-          <g key={i}>
-            {/* Swaying Tendril Path */}
-            <motion.path
-              d={`M${v.x},20 Q${v.x + 8},${v.h * 0.55} ${v.x},${v.h}`}
-              stroke="#245e33"
-              strokeWidth="3.2"
-              strokeLinecap="round"
-              fill="none"
-              animate={{
-                d: [
-                  `M${v.x},20 Q${v.x + v.swing},${v.h * 0.55} ${v.x + (v.swing * 0.6)},${v.h}`,
-                  `M${v.x},20 Q${v.x - v.swing},${v.h * 0.55} ${v.x - (v.swing * 0.6)},${v.h}`,
-                  `M${v.x},20 Q${v.x + v.swing},${v.h * 0.55} ${v.x + (v.swing * 0.6)},${v.h}`,
-                ]
-              }}
-              transition={{ duration: v.d, repeat: Infinity, ease: "easeInOut", delay: v.delay }}
-            />
+        {/* Cluster 2 - mid left */}
+        <ellipse cx="80" cy="18" rx="24" ry="15" fill="#166534" opacity="0.9" />
+        <ellipse cx="100" cy="12" rx="18" ry="12" fill="#15803d" opacity="0.85" />
+        <ellipse cx="70" cy="25" rx="16" ry="10" fill="#14532d" opacity="0.8" />
 
-            {/* Lush Leaf Clusters along the tendril */}
-            <ellipse cx={v.x - 9} cy={v.h * 0.35} rx="8" ry="4.5" fill="url(#leafGrad)" transform={`rotate(-35 ${v.x - 9} ${v.h * 0.35})`} />
-            <ellipse cx={v.x + 9} cy={v.h * 0.55} rx="9" ry="5"   fill="url(#leafGrad)" transform={`rotate(30 ${v.x + 9} ${v.h * 0.55})`} />
-            <ellipse cx={v.x - 8} cy={v.h * 0.75} rx="7.5" ry="4" fill="url(#leafGrad)" transform={`rotate(-25 ${v.x - 8} ${v.h * 0.75})`} />
+        {/* Cluster 3 - far right */}
+        <ellipse cx="200" cy="16" rx="28" ry="16" fill="#14532d" opacity="0.9" />
+        <ellipse cx="225" cy="10" rx="22" ry="13" fill="#166534" opacity="0.85" />
+        <ellipse cx="240" cy="20" rx="16" ry="10" fill="#15803d" opacity="0.8" />
 
-            {/* Hanging Wisteria / Lotus Bellflower cluster at tip */}
-            <g transform={`translate(${v.x}, ${v.h - 5})`}>
-              <ellipse cx="0" cy="0" rx="5.5" ry="5.5" fill="url(#wisteriaGrad)" />
-              <ellipse cx="-4" cy="5" rx="4.5" ry="6" fill="#c084fc" opacity="0.9" />
-              <ellipse cx="4"  cy="5" rx="4.5" ry="6" fill="#f472b6" opacity="0.9" />
-              <ellipse cx="0"  cy="10" rx="4" ry="5.5" fill="#e879f9" opacity="0.95" />
-              <ellipse cx="0"  cy="15" rx="2.5" ry="4" fill="#fae8ff" />
-              <circle  cx="0"  cy="2"  r="2" fill="#fef08a" />
-            </g>
-          </g>
-        ))}
+        {/* Individual leaves hanging down */}
+        <ellipse cx="125" cy="50" rx="8" ry="5" fill="#22c55e" transform="rotate(-30 125 50)" opacity="0.8" />
+        <ellipse cx="138" cy="68" rx="7" ry="4.5" fill="#16a34a" transform="rotate(20 138 68)" opacity="0.75" />
+        <ellipse cx="128" cy="88" rx="6" ry="4" fill="#15803d" transform="rotate(-15 128 88)" opacity="0.7" />
+
+        <ellipse cx="185" cy="55" rx="7" ry="4.5" fill="#22c55e" transform="rotate(25 185 55)" opacity="0.75" />
+        <ellipse cx="188" cy="75" rx="6" ry="4" fill="#16a34a" transform="rotate(-20 188 75)" opacity="0.7" />
+
+        {/* Wisteria flower clusters */}
+        <ellipse cx="110" cy="100" rx="4" ry="6" fill="#c084fc" opacity="0.8" />
+        <ellipse cx="118" cy="106" rx="3.5" ry="5.5" fill="#a855f7" opacity="0.75" />
+        <ellipse cx="103" cy="108" rx="3" ry="5" fill="#d8b4fe" opacity="0.7" />
+
+        <ellipse cx="175" cy="82" rx="3.5" ry="5.5" fill="#c084fc" opacity="0.75" />
+        <ellipse cx="183" cy="88" rx="3" ry="5" fill="#a855f7" opacity="0.7" />
+
+        {/* Down the left branch - leaves */}
+        <ellipse cx="48" cy="60" rx="9" ry="5.5" fill="#22c55e" transform="rotate(-40 48 60)" opacity="0.8" />
+        <ellipse cx="42" cy="85" rx="8" ry="5" fill="#16a34a" transform="rotate(30 42 85)" opacity="0.75" />
+        <ellipse cx="35" cy="110" rx="7" ry="4.5" fill="#15803d" transform="rotate(-25 35 110)" opacity="0.7" />
       </svg>
+    </div>
+  );
+}
 
-      {/* ── Glowing Luminous Fireflies / Fairy Lights in the Canopy ── */}
-      <div className="absolute top-2 left-0 w-full flex justify-between px-6 pointer-events-none">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="w-2 h-2 rounded-full"
-            style={{
-              background: i % 3 === 0 ? '#fef08a' : i % 3 === 1 ? '#86efac' : '#fbcfe8',
-              boxShadow: i % 3 === 0
-                ? '0 0 12px 3px rgba(254, 240, 138, 0.75)'
-                : i % 3 === 1
-                ? '0 0 12px 3px rgba(134, 239, 172, 0.75)'
-                : '0 0 12px 3px rgba(251, 207, 232, 0.75)',
-            }}
-            animate={{
-              opacity: [0.2, 1, 0.2],
-              scale: [0.8, 1.3, 0.8],
-              y: [0, (i % 2 === 0 ? 6 : -6), 0],
-            }}
-            transition={{
-              duration: 2.5 + (i % 5) * 0.4,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: i * 0.25,
-            }}
-          />
-        ))}
-      </div>
+function RightCornerVines() {
+  return (
+    <div className="absolute top-0 right-0 pointer-events-none select-none" style={{ width: 200, height: 160, zIndex: 30 }}>
+      <svg width="200" height="160" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="overflow-visible" style={{ transform: 'scaleX(-1)' }}>
+        <defs>
+          <linearGradient id="trunkR" x1="0" y1="0" x2="130" y2="60" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#08170c" />
+            <stop offset="50%" stopColor="#14331c" />
+            <stop offset="100%" stopColor="#0d2414" />
+          </linearGradient>
+        </defs>
+
+        {/* Main thick right branch */}
+        <path d="M-10,8 C30,6 70,18 110,28 C140,36 170,26 200,18" stroke="url(#trunkR)" strokeWidth="20" strokeLinecap="round" fill="none" />
+        <path d="M-10,8 C30,6 70,18 110,28 C140,36 170,26 200,18" stroke="#1a4a24" strokeWidth="16" strokeLinecap="round" fill="none" />
+
+        {/* Branch going down */}
+        <path d="M55,20 C52,52 38,88 28,128" stroke="url(#trunkR)" strokeWidth="12" strokeLinecap="round" fill="none" />
+        <path d="M55,20 C52,52 38,88 28,128" stroke="#1a4a24" strokeWidth="8" strokeLinecap="round" fill="none" />
+
+        {/* Foliage clusters */}
+        <ellipse cx="15" cy="7" rx="26" ry="16" fill="#14532d" opacity="0.95" />
+        <ellipse cx="40" cy="4" rx="20" ry="13" fill="#166534" opacity="0.9" />
+        <ellipse cx="80" cy="16" rx="22" ry="14" fill="#14532d" opacity="0.9" />
+        <ellipse cx="100" cy="10" rx="18" ry="11" fill="#15803d" opacity="0.85" />
+        <ellipse cx="160" cy="14" rx="26" ry="15" fill="#166534" opacity="0.9" />
+        <ellipse cx="185" cy="8" rx="18" ry="12" fill="#14532d" opacity="0.85" />
+
+        {/* Hanging leaves */}
+        <ellipse cx="48" cy="55" rx="8" ry="5" fill="#22c55e" transform="rotate(-35 48 55)" opacity="0.8" />
+        <ellipse cx="40" cy="80" rx="7" ry="4.5" fill="#16a34a" transform="rotate(25 40 80)" opacity="0.75" />
+        <ellipse cx="32" cy="105" rx="6.5" ry="4" fill="#15803d" transform="rotate(-20 32 105)" opacity="0.7" />
+
+        {/* Wisteria */}
+        <ellipse cx="100" cy="88" rx="3.5" ry="5.5" fill="#c084fc" opacity="0.8" />
+        <ellipse cx="108" cy="94" rx="3" ry="5" fill="#a855f7" opacity="0.75" />
+      </svg>
+    </div>
+  );
+}
+
+// Glowing fireflies
+function Firefly({ x, y, delay }: { x: number; y: number; delay: number }) {
+  return (
+    <motion.div
+      className="absolute rounded-full bg-yellow-300"
+      style={{
+        left: x,
+        top: y,
+        width: 4,
+        height: 4,
+        boxShadow: '0 0 8px 3px rgba(253,224,71,0.8)',
+        zIndex: 31,
+      }}
+      animate={{
+        opacity: [0, 1, 0],
+        x: [0, 12, -8, 0],
+        y: [0, -10, 5, 0],
+        scale: [0.8, 1.2, 0.8],
+      }}
+      transition={{
+        duration: 3.5,
+        repeat: Infinity,
+        ease: 'easeInOut',
+        delay,
+      }}
+    />
+  );
+}
+
+const FIREFLY_POSITIONS = [
+  { x: 180, y: 25, delay: 0 },
+  { x: 240, y: 40, delay: 0.8 },
+  { x: 130, y: 55, delay: 1.5 },
+  { x: 310, y: 30, delay: 2.2 },
+  { x: 380, y: 50, delay: 0.4 },
+];
+
+export default function RoofCanopy() {
+  return (
+    <div className="fixed top-0 left-0 w-full pointer-events-none select-none" style={{ zIndex: 30, height: 170 }}>
+      {/* Ambient forest top gradient vignette - subtle */}
+      <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-[#040e07]/80 via-[#091f11]/30 to-transparent" />
+
+      {/* Left corner vine cluster */}
+      <LeftCornerVines />
+
+      {/* Right corner vine cluster */}
+      <RightCornerVines />
+
+      {/* Glowing fireflies */}
+      {FIREFLY_POSITIONS.map((f, i) => (
+        <Firefly key={i} x={f.x} y={f.y} delay={f.delay} />
+      ))}
     </div>
   );
 }
