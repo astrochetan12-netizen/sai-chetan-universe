@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 
@@ -12,6 +13,11 @@ const WIP_SECTIONS = [
     wipText: 'Stories are brewing...',
     subtitle: 'A writer who reads too much anime',
     warning: '⚠️ This section is still being cooked. Check back later.',
+    quote: '"Words are the only things that last forever" — not me, probably some writer 📝',
+    bgStyle: {
+      backgroundImage: 'repeating-linear-gradient(transparent, transparent 27px, rgba(255,255,255,0.04) 28px)',
+      backgroundSize: '100% 28px',
+    } as React.CSSProperties,
   },
   {
     id: 'gym',
@@ -23,6 +29,12 @@ const WIP_SECTIONS = [
     wipText: 'Gains loading...',
     subtitle: 'Pushing plates and watching anime',
     warning: '⚠️ Still figuring out if I even go to the gym or just talk about it.',
+    quote: '"bro said he goes to the gym" — everyone who knows me 💀',
+    bgStyle: {
+      backgroundImage:
+        'linear-gradient(rgba(148,163,184,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.05) 1px, transparent 1px)',
+      backgroundSize: '24px 24px',
+    } as React.CSSProperties,
   },
 ];
 
@@ -32,7 +44,7 @@ export default function WIP({ section }: { section: 'writing' | 'gym' }) {
   return (
     <Layout title={cfg.title} subtitle={cfg.subtitle} themeColor={cfg.themeColor} accentColor={cfg.color}>
       
-      <div className="flex flex-col items-center justify-center min-h-[55vh] gap-8 text-center py-16">
+      <div className="flex flex-col items-center justify-center min-h-[55vh] gap-8 text-center py-16 rounded-2xl" style={cfg.bgStyle}>
         
         {/* Animated emoji */}
         <motion.div
@@ -90,6 +102,16 @@ export default function WIP({ section }: { section: 'writing' | 'gym' }) {
           <span className="font-medium text-white/50">Ice Cream</span>
           <span>while doing absolutely nothing productive</span>
         </motion.div>
+
+        {/* Motivational quote */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7 }}
+          className="italic text-white/30 text-sm max-w-sm mx-auto"
+        >
+          {cfg.quote}
+        </motion.p>
 
       </div>
     </Layout>

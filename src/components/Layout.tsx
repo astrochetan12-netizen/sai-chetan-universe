@@ -24,13 +24,15 @@ export default function Layout({ children, title, subtitle, themeColor = 'from-i
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.15] pointer-events-none mix-blend-overlay z-0" />
 
       {/* ── Header Banner ── */}
-      <div className={`w-full relative overflow-hidden`} style={{ minHeight: '200px' }}>
+      <div className={`w-full relative overflow-hidden`} style={{ minHeight: '220px' }}>
         {/* Gradient bg */}
         <div className={`absolute inset-0 bg-gradient-to-br ${themeColor}`} />
         {/* Vignette bottom */}
         <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0b0c10] to-transparent z-10" />
         {/* Halftone texture */}
         <div className="absolute inset-0 halftone opacity-10 z-0" />
+        {/* Shimmer line */}
+        <div className="absolute bottom-0 left-0 w-full h-px z-20" style={{ background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)`, opacity: 0.6 }} />
 
         <div className="relative z-20 max-w-6xl mx-auto px-6 pt-6 pb-10 flex flex-col gap-3">
           <Link
@@ -46,7 +48,7 @@ export default function Layout({ children, title, subtitle, themeColor = 'from-i
             <div className="w-1.5 h-14 rounded-full" style={{ background: accentColor, boxShadow: `0 0 18px ${accentColor}88` }} />
             <div>
               {subtitle && (
-                <p className="text-xs font-bold uppercase tracking-[0.15em] text-white/40 mb-1">{subtitle}</p>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-1 font-mono">{subtitle}</p>
               )}
               <h1 className="text-5xl md:text-6xl font-black tracking-tight leading-none text-white drop-shadow-lg">
                 {title}
